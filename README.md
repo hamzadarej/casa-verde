@@ -24,6 +24,6 @@ git clone <http://github.com/<your-profile>/casa-verde.git>
 <h3>merge</h3> <p>clone the forked project repository to your local machine</p>
 git clone <http://github.com/<your-profile>/casa-verde.git>
 
-<h3>3rd Step:</h3><p>add a remote upstream connection with the main project repository</p>
+<h3>PUll Request</h3><p>add a remote upstream connection with the main project repository</p>
 
 <h3>4th Step<h3> <p>git remote add upstream <http://thesergioliveira/casa-verde.git></p>
