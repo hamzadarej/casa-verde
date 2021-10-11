@@ -13,8 +13,8 @@ git clone http://github.com/<your-profile>/casa-verde.git
 
 <h3>3rd Step:</h3><p>add a remote upstream connection with the main project repository</p>
 
-<h3>4th Step<h3> <p>git remote add upstream http://thesergioliveira/casa-verde.git</p>
-
+<h3>4th Step<h3><p>In order to stablish a connection with my repository, which is called upstream</p>
+git remote add upstream http://thesergioliveira/casa-verde.git
 <h2>Daily development routine</h2>
 <br>
 <h3>status, add and commit</h3><p>git status <br> It will check the your git history and compare it with the remote so that you know whatever things you need to do in order to have you git up to date :)</p>
@@ -24,6 +24,6 @@ git clone http://github.com/<your-profile>/casa-verde.git
 <h3>merge</h3> <p>clone the forked project repository to your local machine</p>
 git clone <http://github.com/<your-profile>/casa-verde.git>
 
-<h3>PUll Request</h3><p>add a remote upstream connection with the main project repository</p>
+<h3>Pull Request</h3><p>add a remote upstream connection with the main project repository</p>
 
 <h3>4th Step<h3> <p>git remote add upstream <http://thesergioliveira/casa-verde.git></p>
