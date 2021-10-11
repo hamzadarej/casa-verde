@@ -9,11 +9,11 @@
 <h3>1st Step: <p>fork from the main project repository</p></h3>
 
 <h3>2nd Step:</h3> <p>clone the forked project repository to your local machine</p>
-git clone <http://github.com/<your-profile>/casa-verde.git>
+git clone http://github.com/<your-profile>/casa-verde.git
 
 <h3>3rd Step:</h3><p>add a remote upstream connection with the main project repository</p>
 
-<h3>4th Step<h3> <p>git remote add upstream <http://thesergioliveira/casa-verde.git></p>
+<h3>4th Step<h3> <p>git remote add upstream http://thesergioliveira/casa-verde.git</p>
 
 <h2>Daily development routine</h2>
 <br>
