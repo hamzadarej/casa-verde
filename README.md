@@ -21,7 +21,7 @@ git clone <http://github.com/<your-profile>/casa-verde.git>
 
 <h3>Push<p>git add . && git commit -m "add latest changes"</p></h3>
 
-<h3>2nd Step:</h3> <p>clone the forked project repository to your local machine</p>
+<h3>merge</h3> <p>clone the forked project repository to your local machine</p>
 git clone <http://github.com/<your-profile>/casa-verde.git>
 
 <h3>3rd Step:</h3><p>add a remote upstream connection with the main project repository</p>
