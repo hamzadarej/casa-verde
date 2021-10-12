@@ -1,14 +1,13 @@
-//  population and ref
 const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
-const userSchema = Schema({
+const userSchema = new Schema({
   _id: Schema.Types.ObjectId,
-  userName: {
+  username: {
     type: String,
     lowercase: true,
     required: [true, "can't be blank"],
-    match: [/^[a-zA-Z0-9]+$/, "is invalid"],
+    //match: [/^[a-zA-Z0-9]+$/, "is invalid"],
     index: true,
     unique: true,
   },
@@ -19,7 +18,6 @@ const userSchema = Schema({
     type: String,
     lowercase: true,
     required: [true, "can't be blank"],
-    match: [/^[a-zA-Z0-9]+$/, "is invalid"],
     index: true,
   },
   phone: { type: String },
@@ -30,7 +28,6 @@ const userSchema = Schema({
   country: { type: String },
   basket: [{ type: Schema.Types.ObjectId, ref: "Product" }],
 });
-
 const productSchema = Schema({
   User: { type: Schema.Types.ObjectId, ref: "User" },
   category: {
@@ -53,6 +50,6 @@ const productSchema = Schema({
 
 const Product = mongoose.model("Product", productSchema);
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("users", userSchema);
 
 module.exports = { User, Product };
