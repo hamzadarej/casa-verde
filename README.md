@@ -1,29 +1,38 @@
+<style>
+    img{
+        display: flex;
+        width: 300px;
+        margin: 0 auto;
+    }
+</style>
+
 # Casa-Verde Project
 
 ## GitHub Workflow
 
-<img src="github-assets/image1.png" alt ="workflow image" width="200"/>
+<img src="github-assets/image1.png" alt ="workflow image"/>
 
-<h2>Setting up fork and local develpment enviroment</h2>
-<br>
-<h3>1st Step: <p>fork from the main project repository</p></h3>
+# Daily Routine
 
-<h3>2nd Step:</h3> <p>clone the forked project repository to your local machine</p>
-git clone http://github.com/<your-profile>/casa-verde.git
+## => Remote Origin (Your forked repository)
 
-<h3>3rd Step:</h3><p>add a remote upstream connection with the main project repository</p>
+- I strongly recommend: Create a main a development branches that will not be touched. They will be connected with the main project repository's main and development branch.
+  - main branch: Will only be updated weekly after the spring retro with all features, it is the main application.
+  - development branch: Will be updated daily with all the features that you complete.
+  - Features branches (**_"your-name"-"front/backend"-"feature-name"_**). Having the features divided into branches will help to organize and to catch bugs, so the features are isolated from the development branch.
 
-<h3>4th Step<h3><p>In order to stablish a connection with my repository, which is called upstream</p>
-git remote add upstream http://thesergioliveira/casa-verde.git
-<h2>Daily development routine</h2>
-<br>
-<h3>status, add and commit</h3><p>git status <br> It will check the your git history and compare it with the remote so that you know whatever things you need to do in order to have you git up to date :)</p>
+### Steps:
 
-<h3>Push<p>git add . && git commit -m "add latest changes"</p></h3>
+- git commands:
+  1. git status: Check if you local branches are synced with the remote origin branches.
+  2. git pull origin **_"branch-name"_**: Pull from the forked remote origin branch in order to update your local branch.
+  3. git merge **_"branch-to-merge"_**: Merge the changes that were fetched from the remote origin branch.
+  4. git add . && git commit -m **_"message"_**: Commit all the changes you have on you local branch.
+  5. git pull origin **_"branch-name"_**: Updating your remote origin branch with you latest code.
+     If there were mistakes with the commit message:
+  6. git commit -amend -m **_"message"_**: Edit you last commit message if there were mistakes.
+  7. git push --force origin **_"branch-name"_**: Force push to update the history of the remote repository branch.
 
-<h3>merge</h3> <p>clone the forked project repository to your local machine</p>
-git clone <http://github.com/<your-profile>/casa-verde.git>
+## => Remote Upstream (Main repository for the project)
 
-<h3>Pull Request</h3><p>add a remote upstream connection with the main project repository</p>
-
-<h3>4th Step<h3> <p>git remote add upstream <http://thesergioliveira/casa-verde.git></p>
+<h2>Coming soon...</h2>
