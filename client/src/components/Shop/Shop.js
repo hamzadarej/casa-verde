@@ -1,13 +1,13 @@
 // Test comment
 
-import React from 'react'
+import React from 'react';
 
-function Shop() {
+const Shop = () => {
     return (
         <div>
             <h1>Hi, I am the Shop Component!!!</h1>
         </div>
-    )
+    );
 }
 
-export default Shop
+export default Shop;

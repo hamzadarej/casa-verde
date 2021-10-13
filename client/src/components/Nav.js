@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-function Nav() {
+const Nav = () => {
     const stylingObject = {
         ul: {
           display: 'flex',
@@ -22,6 +22,7 @@ function Nav() {
         },
       };
     return (
+      <header style={{ textAlign: 'center' }}>
         <div className="whatever">
           <nav>
             <h1 class="logo" style={{ textAlign: 'center' }}>
@@ -39,19 +40,20 @@ function Nav() {
                 </Link>
               </li>
               <li style={stylingObject.li}>
-                <Link style={stylingObject.a} to={'/blog'}>
-                  Blog
+                <Link style={stylingObject.a} to={'/services'}>
+                  Services
                 </Link>
               </li>
               <li style={stylingObject.li}>
-                <Link style={stylingObject.a} to={'/products'}>
-                  Products
+                <Link style={stylingObject.a} to={'/shop'}>
+                  Shop
                 </Link>
               </li>
             </ul>
           </nav>
         </div>
-    )
+      </header>
+    );
 }
 
-export default Nav
+export default Nav;
