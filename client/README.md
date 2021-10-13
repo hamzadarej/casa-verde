@@ -14,7 +14,7 @@
 
 <img src="github-assets/image1.png" alt ="workflow image"/>
 
-# Daily Routine
+## Daily Routine
 
 ## => Remote Origin (Your forked repository)
 
