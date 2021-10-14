@@ -11,7 +11,7 @@ const App = () => {
   return (
     <Router>
        <Nav />
-      <main style={{ textAlign: 'center', height: '50vh' }}>
+         <main style={{ textAlign: 'center', height: '50vh' }}>
         <Switch>
           <Route path="/" exact render={Home}></Route>
           <Route path="/about" exact render={About}></Route>
