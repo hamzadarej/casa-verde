@@ -35,18 +35,33 @@ const Nav = () => {
                 </Link>
               </li>
               <li style={stylingObject.li}>
-                <Link style={stylingObject.a} to={'/about'}>
-                  About
+                <Link style={stylingObject.a} to={'/shop'}>
+                  Shop
                 </Link>
               </li>
               <li style={stylingObject.li}>
                 <Link style={stylingObject.a} to={'/services'}>
-                  Services
+                  Decoration Services
                 </Link>
               </li>
               <li style={stylingObject.li}>
-                <Link style={stylingObject.a} to={'/shop'}>
-                  Shop
+                <Link style={stylingObject.a} to={'/events'}>
+                  Events
+                </Link>
+              </li>
+              <li style={stylingObject.li}>
+                <Link style={stylingObject.a} to={'/rent'}>
+                  Rental Services
+                </Link>
+              </li>
+              <li style={stylingObject.li}>
+                <Link style={stylingObject.a} to={'/ballet-pilates'}>
+                  Ballet & Pilates
+                </Link>
+              </li>
+              <li style={stylingObject.li}>
+                <Link style={stylingObject.a} to={'/technical-consulting'}>
+                  Technical Consulting
                 </Link>
               </li>
             </ul>
