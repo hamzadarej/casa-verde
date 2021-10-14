@@ -60,7 +60,7 @@ const Nav = () => {
                 </Link>
               </li>
               <li style={stylingObject.li}>
-                <Link style={stylingObject.a} to={'/technical-consulting'}>
+                <Link style={stylingObject.a} to={'/technic'}>
                   Technical Consulting
                 </Link>
               </li>
