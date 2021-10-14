@@ -2,7 +2,7 @@
 
 ## GitHub Workflow
 
-<img src=“github-assets/image1.png” width="300px" margin="0 auto" alt =“workflow image”/>
+<img src=“github-assets/image1.png” alt =“workflow image”/>
 
 ## Daily Routine
 
