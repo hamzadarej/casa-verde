@@ -3,12 +3,11 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var morgan = require("morgan");
-var bodyParser = require('body-parser');
-
+var bodyParser = require("body-parser");
 
 // Initializing Routes
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+var usersRouter = require("./routes/user");
 var ProductRouter = require("./routes/product");
 
 var app = express();
@@ -33,7 +32,7 @@ mongoose
     console.log(`There was a problem ${error.message}`);
   });
 
-  // Alow uploads
+// Alow uploads
 app.use("/uploads", express.static("uploads"));
 const multer = require("multer");
 const storage = multer.diskStorage({
@@ -63,7 +62,7 @@ const upload = multer({
 
 app.use("/users", indexRouter);
 app.use("/user", usersRouter);
-app.use("/product", upload.single("image"),ProductRouter)
+app.use("/product", upload.single("image"), ProductRouter);
 
-// Exporting App
+// Exporting App 
 module.exports = app;
