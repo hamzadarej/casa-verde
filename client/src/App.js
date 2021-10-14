@@ -5,6 +5,7 @@ import Services from './components/Services';
 import Shop from './components/Shop/Shop';
 import Nav from './components/Nav';
 import Footer from './components/Footer';
+import Contact from './components/Contact';
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/about" exact render={About}></Route>
           <Route path="/services" exact render={Services}></Route>
           <Route path="/shop" exact render={Shop}></Route>
+          <Route path="/Contact" exact render={Contact}></Route>
         </Switch>
       </main>
       <Footer />
