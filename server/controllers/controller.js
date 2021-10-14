@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt");
 const { createToken } = require("../JWT-check");
 
 const allControllers = {};
-// https://mongoosejs.com/docs/populate.html
+
 // Add new User
 allControllers.addUser = async (req, res) => {
   try {
@@ -42,6 +42,7 @@ allControllers.getAllUsers = async (req, res) => {
 // Add new Product
 allControllers.addProduct = async (req, res) => {
   try {
+    console.log(req.file)
     const product = await new Product({
       category: req.body.category,
       name: req.body.name,
@@ -52,12 +53,12 @@ allControllers.addProduct = async (req, res) => {
     });
     console.log(req.file);
     await product.save();
-    res.status(201).json({ message: "New user being added ✅", product });
+    res.status(201).json({ message: "New product being added ✅", product });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 };
-// Login 
+// Login
 allControllers.login = async (req, res) => {
   let username = req.body.username;
   let password = req.body.password;

@@ -8,5 +8,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.post("/register",middleware.validator,allControllers.addUser);
+router.post("/login",allControllers.login);
+router.get("/logout",allControllers.logout);
 
 module.exports = router;
