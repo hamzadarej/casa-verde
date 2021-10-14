@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import NavPath from '../nav-path.json';
 
 const Nav = () => {
     const stylingObject = {
@@ -21,6 +22,18 @@ const Nav = () => {
           textAlign: 'center',
         },
       };
+
+      const navPath = NavPath.map((obj) => {
+        const {id, name, path} = obj;
+        return (
+          <li key={id} style={stylingObject.li}>
+              <Link style={stylingObject.a} to={path}>
+                {name}
+              </Link>
+          </li>
+        )
+      });
+
     return (
       <header style={{ textAlign: 'center' }}>
         <div className="whatever">
@@ -29,19 +42,11 @@ const Nav = () => {
               Casa Verde
             </h1>
             <ul style={stylingObject.ul}>
-              <li style={stylingObject.li}>
+
+              {navPath}
+              {/* <li style={stylingObject.li}>
                 <Link style={stylingObject.a} to={'/'}>
                   Home
-                </Link>
-              </li>
-              <li style={stylingObject.li}>
-                <Link style={stylingObject.a} to={'/about'}>
-                  About
-                </Link>
-              </li>
-              <li style={stylingObject.li}>
-                <Link style={stylingObject.a} to={'/services'}>
-                  Services
                 </Link>
               </li>
               <li style={stylingObject.li}>
@@ -49,6 +54,31 @@ const Nav = () => {
                   Shop
                 </Link>
               </li>
+              <li style={stylingObject.li}>
+                <Link style={stylingObject.a} to={'/services'}>
+                  Decoration Services
+                </Link>
+              </li>
+              <li style={stylingObject.li}>
+                <Link style={stylingObject.a} to={'/events'}>
+                  Events
+                </Link>
+              </li>
+              <li style={stylingObject.li}>
+                <Link style={stylingObject.a} to={'/rent'}>
+                  Rental Services
+                </Link>
+              </li>
+              <li style={stylingObject.li}>
+                <Link style={stylingObject.a} to={'/ballet-pilates'}>
+                  Ballet & Pilates
+                </Link>
+              </li>
+              <li style={stylingObject.li}>
+                <Link style={stylingObject.a} to={'/technic'}>
+                  Technical Consulting
+                </Link>
+              </li> */}
             </ul>
           </nav>
         </div>
