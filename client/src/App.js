@@ -1,87 +1,40 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Nav from './components/Nav';
 import Home from './components/Home';
-import About from './components/About';
-import Blog from './components/Blog';
-import Products from './components/Products';
+import About from './components/footer/About';
+import Services from './components/Services';
+import Shop from './components/Shop/Shop';
+import Events from './components/Events';
+import Rent from './components/Rent';
+import BalletAndPilates from './components/BalletAndPilates';
+import TechnicalConsulting from './components/TechnicalConsulting';
+import Footer from './components/Footer';
+import Contact from './components/footer/Contact';
+import Login from './components/Login';
+import Register from './components/Register';
 
-function App() {
-  let now = new Date();
-  let year = now.getFullYear();
-  const stylingObject = {
-    ul: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      fontSize: '2rem',
-      gap: '1rem',
-    },
-    li: {
-      listStyle: 'none',
-    },
-    a: {
-      textDecoration: 'none',
-      color: 'gray',
-    },
-    text: {
-      textAlign: 'center',
-    },
-  };
+const App = () => {
   return (
     <Router>
-      <header style={{ textAlign: 'center' }}>
-        <div className="whatever">
-          <nav>
-            <h1 class="logo" style={{ textAlign: 'center' }}>
-              Casa Verde
-            </h1>
-            <ul style={stylingObject.ul}>
-              <li style={stylingObject.li}>
-                <Link style={stylingObject.a} to={'/'}>
-                  Home
-                </Link>
-              </li>
-              <li style={stylingObject.li}>
-                <Link style={stylingObject.a} to={'/about'}>
-                  About
-                </Link>
-              </li>
-              <li style={stylingObject.li}>
-                <Link style={stylingObject.a} to={'/blog'}>
-                  Blog
-                </Link>
-              </li>
-              <li style={stylingObject.li}>
-                <Link style={stylingObject.a} to={'/products'}>
-                  Products
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <Nav />
       <main style={{ textAlign: 'center', height: '50vh' }}>
         <Switch>
           <Route path="/" exact render={Home}></Route>
+          <Route path="/shop" exact render={Shop}></Route>
+          <Route path="/services" exact render={Services}></Route>
+          <Route path="/events" exact render={Events}></Route>
+          <Route path="/rent" exact render={Rent}></Route>
+          <Route path="/ballet-pilates" exact render={BalletAndPilates}></Route>
+          <Route path="/technic" exact render={TechnicalConsulting}></Route>
           <Route path="/about" exact render={About}></Route>
-          <Route path="/blog" exact render={Blog}></Route>
-          <Route path="/products" exact render={Products}></Route>
+          <Route path="/contact" exact render={Contact}></Route>
+          <Route path="/login" exact render={Login}></Route>
+          <Route path="/register" exact render={Register}></Route>
         </Switch>
       </main>
-      <footer
-        style={{
-          textAlign: 'center',
-          position: 'absolute',
-          bottom: '30px',
-          left: '50vw',
-          transform: 'translateX(-50%)',
-        }}
-      >
-        {' '}
-        <div className="--footer-main-container">Made with ❤️</div>{' '}
-        <div className="--footer-secondary-container">{year}</div>
-      </footer>
+      <Footer />
     </Router>
   );
-}
+};
 
 export default App;

@@ -3,20 +3,24 @@ var express = require("express");
 var path = require("path");
 var cookieParser = require("cookie-parser");
 var morgan = require("morgan");
+var bodyParser = require("body-parser");
 
 // Initializing Routes
 var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/users");
+var usersRouter = require("./routes/user");
+var ProductRouter = require("./routes/product");
 
 var app = express();
 
 // Setting up Dependencies
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-// Mongoose
+
+// mongoDB
+
 const mongoose = require("mongoose");
 mongoose
   .connect(process.env.DB_URL, {
@@ -24,13 +28,41 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(console.log("DB is connected 😎"))
-  .catch((err) => {
-    console.log(`There was error ${err.message}`);
+  .catch((error) => {
+    console.log(`There was a problem ${error.message}`);
   });
-app.use("/", indexRouter);
-app.use("/users", usersRouter);
-//
-// get all users and add new user (only for experimenting)
+
+// Alow uploads
+app.use("/uploads", express.static("uploads"));
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, new Date().toISOString() + file.originalname);
+  },
+});
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 1024 * 1024 * 10 },
+  fileFilter: function (req, file, cb) {
+    if (
+      file.mimetype == "image/jpeg" ||
+      file.mimetype == "image/png" ||
+      file.mimetype == "image/gif"
+    ) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only .jpg .gif .png files are OK"), false);
+    }
+  },
+});
+// use routes
+
+app.use("/users", indexRouter);
+app.use("/user", usersRouter);
+app.use("/product", upload.single("image"), ProductRouter);
 
 // Exporting App
 module.exports = app;
