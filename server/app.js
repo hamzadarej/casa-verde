@@ -11,7 +11,16 @@ var usersRouter = require("./routes/user");
 var ProductRouter = require("./routes/product");
 
 var app = express();
+// Initialize && Use Cors
+const cors = require("cors");
 
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+    credentials: true,
+  })
+);
 // Setting up Dependencies
 app.use(morgan("dev"));
 app.use(express.json());
@@ -65,5 +74,5 @@ app.use("/users", indexRouter);
 app.use("/user", usersRouter);
 app.use("/product", upload.single("image"), ProductRouter);
 
-// Exporting App 
+// Exporting App
 module.exports = app;
