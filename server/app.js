@@ -23,9 +23,10 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const mongoose = require("mongoose");
 mongoose
-  .connect(process.env.DB_URL, {
+.connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useCreateIndex: true
   })
   .then(console.log("DB is connected 😎"))
   .catch((error) => {

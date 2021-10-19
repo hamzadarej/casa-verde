@@ -17,6 +17,7 @@ const Footer = () => {
         transform: 'translateX(-50%)',
       }}
     >
+      {/* Need to add public.env */}
       <ul>
         <li>
           <Link to={'/about'}>About</Link>
