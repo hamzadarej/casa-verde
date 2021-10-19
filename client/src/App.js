@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import About from './components/footer/About';
@@ -20,6 +20,7 @@ const App = () => {
     setCount(count + 1);
     console.log(count);
   }
+
   return (
     <Router>
       <Nav />
