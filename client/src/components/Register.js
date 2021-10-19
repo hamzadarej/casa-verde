@@ -29,7 +29,7 @@ const Register = () => {
     setAvatar(e.target.files[0]);
   };
   return (
-    <div className="register-container">
+    <div className="register-container" onClick={handleSubmit}>
       <h2>Ready to take a free trial?</h2>
       <h4>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
@@ -71,7 +71,7 @@ const Register = () => {
         onChange={handleUpload}
         placeholder=""
       />
-      <button onClick={handleSubmit}>Register</button>
+      <button type="submit">Register</button>
       <h4>OR</h4>
       <Link to="/login">Login</Link>
     </div>
