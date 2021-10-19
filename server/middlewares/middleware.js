@@ -15,12 +15,12 @@ middleware.validator = async (req, res, next) => {
     return res.status(400).json({ message: "Invalid email address" });
   }
   //check password
-  const pass = req.body.password;
-  const passConf = req.body.passwordConf;
-  
-  if (pass !== passConf) {
-    return res.status(400).json({ message: "false Password!, Try Again" });
-  }
+  // const pass = req.body.password;
+  // const passConf = req.body.passwordConf;
+
+  // if (pass !== passConf) {
+  //   return res.status(400).json({ message: "false Password!, Try Again" });
+  // }
   next();
 };
 module.exports = middleware;

@@ -14,7 +14,8 @@ allControllers.addUser = async (req, res) => {
       _id: new mongoose.Types.ObjectId(),
       username: req.body.username,
       email: req.body.email,
-      password: hashedPassword,
+      password: req.body.password,
+      // password: hashedPassword,
       phone: req.body.phone,
       address: req.body.address,
       city: req.body.city,
@@ -41,21 +42,40 @@ allControllers.getAllUsers = async (req, res) => {
 };
 // Add new Product
 allControllers.addProduct = async (req, res) => {
-  try {
-    console.log(req.file);
-    const product = await new Product({
-      category: req.body.category,
-      name: req.body.name,
-      price: req.body.price,
-      description: req.body.description,
-      image: req.file.path,
-      quantity: req.body.quantity,
+  User.findById(req.params.id)
+    .then((user) => {
+      if (user) {
+        const product = new Product({
+          _id: new mongoose.Types.ObjectId(),
+          user: req.params.id, // get the _id from that author which is in my params
+          category: req.body.category,
+          name: req.body.name,
+          price: req.body.price,
+          description: req.body.description,
+          image: req.file.path,
+          quantity: req.body.quantity,
+        });
+        product.save();
+        user.products.push(product);
+        user.save();
+        res
+          .status(201)
+          .json({ message: "New product being added ✅", product });
+      } else {
+        return res.status(404).json({ message: "user NOT Found" });
+      }
+    })
+    .catch((err) => {
+      res.status(400).json({ message: err.message });
     });
-    console.log(req.file);
-    await product.save();
-    res.status(201).json({ message: "New product being added ✅", product });
+};
+//get all products
+allControllers.getAllProducts = async (req, res) => {
+  try {
+    const products = await Product.find();
+    res.status(200).json(products);
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(err.message).json({ message: err.message });
   }
 };
 // Login
