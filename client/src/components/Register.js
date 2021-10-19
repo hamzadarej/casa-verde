@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
-const Register = () => {
+const Input = styled.input`
+  display: block;
+  border: none;
+  border-bottom: 2px solid green;
+  margin: 2% auto;
+`;
+
+const Register = (props) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -36,35 +44,35 @@ const Register = () => {
         adipisci ipsa ratione provident eos, odio doloribus voluptates deleniti
         aperiam harum!
       </h4>
-      <input
+      <Input
         type="text"
         value={username}
         name="username"
         onChange={(e) => setUsername(e.target.value)}
         placeholder="choose your username"
       />
-      <input
+      <Input
         type="email"
         value={email}
         name="email"
         onChange={(e) => setEmail(e.target.value)}
         placeholder="your email"
       />
-      <input
+      <Input
         type="password"
         value={password}
         name="password"
         onChange={(e) => setPassword(e.target.value)}
         placeholder="password"
       />
-      <input
+      <Input
         type="password"
         value={confPassword}
         name="conf-password"
         onChange={(e) => setConfPassword(e.target.value)}
         placeholder="confirm your password"
       />
-      <input
+      <Input
         type="file"
         value={avatar}
         name="avatar"
