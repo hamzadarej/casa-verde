@@ -79,6 +79,26 @@ allControllers.getAllProducts = async (req, res) => {
     res.status(err.message).json({ message: err.message });
   }
 };
+// get all products from a user(sven) upon the id
+
+allControllers.getOneByID = async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).populate("basket");
+    // res.status(200).json(user);
+    res.status(200).json({
+      message: `${user.username} has ${user.basket.length} stuff in his basket`,
+      basket: user.basket
+        .map(
+          (product) =>
+            `${product.quantity} ${product.name} from ${product.category}`
+        )
+        .join(", "),
+    });
+  } catch (err) {
+    res.status(err.status).json({ message: err.message });
+  }
+};
+
 // Login
 allControllers.login = async (req, res) => {
   let username = req.body.username;
