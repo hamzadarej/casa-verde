@@ -64,5 +64,6 @@ const checkToken = (req, res, next) => {
   next();
 }
 
-module.exports = {createToken, checkToken};
-*/
+module.exports = { createToken };
+
+/*  */

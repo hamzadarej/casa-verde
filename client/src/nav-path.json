@@ -6,55 +6,55 @@
     "url": "/"
   },
   {
-    "id": 0,
+    "id": 1,
     "position": "Center",
     "name": "Home",
     "path": "/"
   },
   {
-    "id": 1,
+    "id": 2,
     "position": "Center",
     "name": "Shop",
     "path": "/shop"
   },
   {
-    "id": 2,
+    "id": 3,
     "position": "Center",
     "name": "Decoration Services",
     "path": "/services"
   },
   {
-    "id": 3,
+    "id": 4,
     "position": "Center",
     "name": "Events",
     "path": "/events"
   },
   {
-    "id": 4,
+    "id": 5,
     "position": "Center",
     "name": "Rental Services",
     "path": "/rent"
   },
   {
-    "id": 0,
+    "id": 6,
     "position": "Center",
     "name": "Ballet/Pilates",
     "path": "/ballet-pilates"
   },
   {
-    "id": 0,
+    "id": 7,
     "position": "Center",
     "name": "Technical Services",
     "path": "/technic"
   },
   {
-    "id": 0,
+    "id": 8,
     "position": "left",
     "name": "sign in",
     "path": "/login"
   },
   {
-    "id": 0,
+    "id": 9,
     "position": "left",
     "name": "sign up",
     "path": "/register"
