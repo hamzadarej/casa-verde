@@ -35,13 +35,13 @@ mongoose
 .connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true
   })
   .then(console.log("DB is connected 😎"))
   .catch((error) => {
     console.log(`There was a problem ${error.message}`);
   });
 
+  console.log(process.env.DB_URL);
 // Alow uploads
 app.use("/uploads", express.static("uploads"));
 const multer = require("multer");
