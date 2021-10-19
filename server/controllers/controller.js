@@ -43,19 +43,21 @@ allControllers.getAllUsers = async (req, res) => {
 allControllers.addProduct = async (req, res) => {
   User.findById(req.params.id)
     .then((user) => {
-      if (user) {
+      if (user && user.admin && user.username == "sven") {
         const product = new Product({
           _id: new mongoose.Types.ObjectId(),
-          user: req.params.id, // get the _id from that author which is in my params
+          user: req.params.id, // get the _id from that user which is in my params
           category: req.body.category,
           name: req.body.name,
           price: req.body.price,
           description: req.body.description,
-          image: req.file.path,
+          // image: req.file.path,
           quantity: req.body.quantity,
         });
         product.save();
-        user.products.push(product);
+        console.log(user.basket);
+        user.basket.push(product);
+        console.log(user.basket);
         user.save();
         res
           .status(201)

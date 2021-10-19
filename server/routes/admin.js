@@ -3,14 +3,14 @@ var router = express.Router();
 const allControllers = require("../controllers/controller");
 
 /* add new Product. */
-router.post("/product", allControllers.addProduct);
+// to addd only from http://localhost:5002/admin/product/616e93c53e129829c56c8f17 where 616e93c53e129829c56c8f17 is the id of sven
+router.post("/product/:id", allControllers.addProduct);
 
-// get all users 
+// get all users
 // getAll http://localhost:5005/admin/users
 router.get("/users", allControllers.getAllUsers);
-// delete Product. 
+// delete Product.
 
 // update Product
-
 
 module.exports = router;
