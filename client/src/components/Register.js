@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
@@ -11,7 +11,7 @@ const Input = styled.input`
 `;
 
 const Register = () => {
-  const [username, setUsername] = useState("");
+  // const [username, setUsername] = useState(1);
   // const [email, setEmail] = useState();
   // const [password, setPassword] = useState();
   // const [confPassword, setConfPassword] = useState();
