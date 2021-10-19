@@ -39,7 +39,7 @@ allControllers.getAllUsers = async (req, res) => {
     res.status(err.message).json({ message: err.message });
   }
 };
-// Add new Product
+// Add new Product from admin
 allControllers.addProduct = async (req, res) => {
   User.findById(req.params.id)
     .then((user) => {
@@ -70,6 +70,31 @@ allControllers.addProduct = async (req, res) => {
       res.status(400).json({ message: err.message });
     });
 };
+// Add new Product from users
+allControllers.addToBasket = async (req, res) => {
+  User.findById(req.params.id)
+    .then((user) => {
+      if (user && !user.admin && !user.username == "sven") {
+        const product = new Product({
+          // it must be a product from svens basket
+        });
+        product.save();
+
+        user.basket.push(product);
+
+        user.save();
+        res
+          .status(201)
+          .json({ message: "New product being added ✅", product });
+      } else {
+        return res.status(404).json({ message: "user NOT Found" });
+      }
+    })
+    .catch((err) => {
+      res.status(400).json({ message: err.message });
+    });
+};
+
 //get all products
 allControllers.getAllProducts = async (req, res) => {
   try {
