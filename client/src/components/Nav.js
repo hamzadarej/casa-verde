@@ -46,7 +46,7 @@ const Nav = () => {
     <header style={{ textAlign: 'center' }}>
       <div className="whatever">
         <nav>
-          <h1 class="logo" style={{ textAlign: 'center' }}>
+          <h1 className="logo" style={{ textAlign: 'center' }}>
             Casa Verde
           </h1>
           <ul style={stylingObject.ul}>{navPath}</ul>

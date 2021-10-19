@@ -10,34 +10,37 @@ const Input = styled.input`
   margin: 2% auto;
 `;
 
-const Register = (props) => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confPassword, setConfPassword] = useState('');
-  const [avatar, setAvatar] = useState('');
+const Register = () => {
+  const [username, setUsername] = useState("");
+  // const [email, setEmail] = useState();
+  // const [password, setPassword] = useState();
+  // const [confPassword, setConfPassword] = useState();
+  // const [avatar, setAvatar] = useState();
 
-  const handleSubmit = () => {
-    const data = new FormData();
-    data.append('username', username);
-    data.append('password', username);
-    data.append('confPassword', username);
-    data.append('avatar', username);
+  // const handleSubmit = () => {
+  //   const data = new FormData();
+  //   data.append('username', username);
+  //   data.append('password', username);
+  //   data.append('confPassword', username);
+  //   data.append('avatar', username);
 
-    axios
-      .post('http://localhost:5000/register', data, {
-        header: {
-          'Content-Type': 'multitpart/form-data',
-        },
-      })
-      .then((res) => console.log(res));
-  };
+  //   axios
+  //     .post('http://localhost:5000/register', data, {
+  //       header: {
+  //         'Content-Type': 'multitpart/form-data',
+  //       },
+  //     })
+  //     .then((res) => console.log(res));
+  // };
 
-  const handleUpload = (e) => {
-    setAvatar(e.target.files[0]);
-  };
+  // const handleUpload = (e) => {
+  //   e.prevent.default();
+  //   setAvatar(e.target.files[0]);
+  // };
   return (
-    <div className="register-container" onClick={handleSubmit}>
+    // <h1>Register</h1>
+    <div className="register-container">
+      <form>
       <h2>Ready to take a free trial?</h2>
       <h4>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
@@ -46,42 +49,43 @@ const Register = (props) => {
       </h4>
       <Input
         type="text"
-        value={username}
+        // value={username}
         name="username"
-        onChange={(e) => setUsername(e.target.value)}
+        // onChange={(e) => setUsername(e.target.value)}
         placeholder="choose your username"
       />
       <Input
         type="email"
-        value={email}
+        // value={email}
         name="email"
-        onChange={(e) => setEmail(e.target.value)}
+        // onChange={(e) => setEmail(e.target.value)}
         placeholder="your email"
       />
       <Input
         type="password"
-        value={password}
+        // value={password}
         name="password"
-        onChange={(e) => setPassword(e.target.value)}
+        // onChange={(e) => setPassword(e.target.value)}
         placeholder="password"
       />
       <Input
         type="password"
-        value={confPassword}
+        // value={confPassword}
         name="conf-password"
-        onChange={(e) => setConfPassword(e.target.value)}
+        // onChange={(e) => setConfPassword(e.target.value)}
         placeholder="confirm your password"
       />
       <Input
         type="file"
-        value={avatar}
+        // value={avatar}
         name="avatar"
-        onChange={handleUpload}
+        // onChange={handleUpload}
         placeholder=""
       />
       <button type="submit">Register</button>
       <h4>OR</h4>
       <Link to="/login">Login</Link>
+      </form>
     </div>
   );
 };

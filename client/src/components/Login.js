@@ -10,37 +10,44 @@ const Input = styled.input`
   margin: 1% auto;
 `;
 const Login = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  // const [username, setUsername] = useState('');
+  // const [password, setPassword] = useState('');
 
-  const loginUser = () => {
-    axios
-      .post('http://localhost:5000/login', {
-        username,
-        password,
-      })
-      .then((res) => console.log(res));
-  };
+  // const loginUser = (e) => {
+  //   e.prevent.default();
+  //   setUsername(e.target.value);
+  //   setPassword(e.target.value);
+  //   // axios
+  //   //   .post('http://localhost:5000/login', {
+  //   //     username,
+  //   //     password,
+  //   //   })
+  //   //   .then((res) => console.log(res));
+  // };
 
   return (
+    // <h1>Login</h1>
     <div className="register-container">
+      <form>
       <Input
         type="text"
-        value={username}
+        // value={username}
         name="username"
-        onChange={(e) => setUsername(e.target.value)}
+        // onChange={(e) => setUsername(e.target.value)}
         placeholder="choose your username"
       />
       <Input
         type="password"
-        value={password}
+        // value={password}
         name="conf-password"
-        onChange={(e) => setPassword(e.target.value)}
+        // onChange={(e) => setPassword(e.target.value)}
         placeholder="confirm your password"
       />
-      <button onClick={loginUser}>Register</button>
+      <input type="submit" value="Login" />
+      {/* <button onSubmit={loginUser}>Login</button> */}
       <h4>OR</h4>
-      <Link to="/Register">Register</Link>
+      <Link to="/register">Register</Link>
+      </form>
     </div>
   );
 };
