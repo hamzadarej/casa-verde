@@ -42,7 +42,7 @@ allControllers.getAllUsers = async (req, res) => {
 // Add new Product
 allControllers.addProduct = async (req, res) => {
   try {
-    console.log(req.file)
+    console.log(req.file);
     const product = await new Product({
       category: req.body.category,
       name: req.body.name,
