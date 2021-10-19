@@ -17,8 +17,9 @@ const App = () => {
   return (
     <Router>
       <Nav />
-      <main style={{ textAlign: 'center', height: '50vh' }}>
+      <main style={{ textAlign: 'center', height: '50rem' }}>
         <Switch>
+          {/* Need to add public.env */}
           <Route path="/" exact render={Home}></Route>
           <Route path="/shop" exact render={Shop}></Route>
           <Route path="/services" exact render={Services}></Route>

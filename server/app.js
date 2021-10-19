@@ -27,7 +27,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 const mongoose = require("mongoose");
 mongoose
-  .connect(process.env.DB_URL, {
+.connect(process.env.DB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -36,6 +36,7 @@ mongoose
     console.log(`There was a problem ${error.message}`);
   });
 
+  console.log(process.env.DB_URL);
 // Alow uploads
 app.use("/uploads", express.static("uploads"));
 const multer = require("multer");
