@@ -92,4 +92,7 @@ allControllers.logout = async (req, res) => {
   res.cookie("token-key", "", { maxAge: 1 });
   res.redirect("/");
 };
+allControllers.getDate = async (req, res) => {
+  res.status(200).json("welcome to casaVerde");
+};
 module.exports = allControllers;

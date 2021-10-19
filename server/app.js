@@ -5,11 +5,6 @@ var cookieParser = require("cookie-parser");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
 
-// Initializing Routes
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/user");
-var ProductRouter = require("./routes/product");
-
 var app = express();
 // Initialize && Use Cors
 const cors = require("cors");
@@ -67,11 +62,15 @@ const upload = multer({
     }
   },
 });
+// Initializing Routes
+var indexRouter = require("./routes/index");
+var usersRouter = require("./routes/user");
+var adminRouter = require("./routes/admin");
 // use routes
 
-app.use("/users", indexRouter);
+app.use("/", indexRouter);
 app.use("/user", usersRouter);
-app.use("/product", upload.single("image"), ProductRouter);
+app.use("/admin", upload.single("image"), adminRouter);
 
 // Exporting App
 module.exports = app;
