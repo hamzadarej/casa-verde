@@ -56,9 +56,9 @@ const cardElements = HomeData.map((obj) => {
 
 
   return (
-    <div>
+    <div className="home">
      <div>
-      <div>Here comes the roof of the house</div>
+      <div className="roof"></div>
       <h1>Casa Verde</h1>
       <p>RAUM FÜR IDEEN</p>
       </div>

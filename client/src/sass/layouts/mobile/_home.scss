@@ -1,0 +1,37 @@
+// test styling
+
+.home {
+    width: 100%;
+    height: auto;
+    border: red solid 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+
+    .roof {
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 7em 6em;
+        border-color: transparent transparent #c4c4c4;
+    }
+
+    h1 {
+        position: relative;
+        bottom: 2.8em;
+        z-index: 1;
+    }
+
+    h1+p {
+        width: 75%;
+        position: relative;
+        bottom: 7.7em;
+        left: 1.7em;
+        background-color: #88D467;
+        padding: .5em 0;
+        text-align: center;
+    }
+
+}
