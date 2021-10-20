@@ -1,17 +1,26 @@
-import React, {useState} from "react";
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React, { useState } from "react";
 
-const Input = styled.input`
-  display: block;
-  border: none;
-  border-bottom: 2px solid green;
-  margin: 2% auto;
-`;
+// import axios from 'axios';
+// import { Link } from 'react-router-dom';
+// import styled from 'styled-components';
+
+// const Input = styled.input`
+//   display: block;
+//   border: none;
+//   border-bottom: 2px solid green;
+//   margin: 2% auto;
+// `;
 
 const Register = () => {
-  // const [username, setUsername] = useState(1);
+
+  const [count,setCount] = useState(0);
+  const addCount = () => {
+    setCount(count + 1);
+    console.log(count);
+  }
+
+
+  //const [username, setUsername] = useState("");
   // const [email, setEmail] = useState();
   // const [password, setPassword] = useState();
   // const [confPassword, setConfPassword] = useState();
@@ -38,55 +47,60 @@ const Register = () => {
   //   setAvatar(e.target.files[0]);
   // };
   return (
-    // <h1>Register</h1>
-    <div className="register-container">
-      <form>
-      <h2>Ready to take a free trial?</h2>
-      <h4>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-        adipisci ipsa ratione provident eos, odio doloribus voluptates deleniti
-        aperiam harum!
-      </h4>
-      <Input
-        type="text"
-        // value={username}
-        name="username"
-        // onChange={(e) => setUsername(e.target.value)}
-        placeholder="choose your username"
-      />
-      <Input
-        type="email"
-        // value={email}
-        name="email"
-        // onChange={(e) => setEmail(e.target.value)}
-        placeholder="your email"
-      />
-      <Input
-        type="password"
-        // value={password}
-        name="password"
-        // onChange={(e) => setPassword(e.target.value)}
-        placeholder="password"
-      />
-      <Input
-        type="password"
-        // value={confPassword}
-        name="conf-password"
-        // onChange={(e) => setConfPassword(e.target.value)}
-        placeholder="confirm your password"
-      />
-      <Input
-        type="file"
-        // value={avatar}
-        name="avatar"
-        // onChange={handleUpload}
-        placeholder=""
-      />
-      <button type="submit">Register</button>
-      <h4>OR</h4>
-      <Link to="/login">Login</Link>
-      </form>
+
+    <div>
+       <button onClick={addCount}>+</button>
+        <div>{count}</div>
     </div>
+    // <h1>Register</h1>
+    // <div className="register-container">
+    //   <form>
+    //   <h2>Ready to take a free trial?</h2>
+    //   <h4>
+    //     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
+    //     adipisci ipsa ratione provident eos, odio doloribus voluptates deleniti
+    //     aperiam harum!
+    //   </h4>
+    //   <Input
+    //     type="text"
+    //     // value={username}
+    //     name="username"
+    //     // onChange={(e) => setUsername(e.target.value)}
+    //     placeholder="choose your username"
+    //   />
+    //   <Input
+    //     type="email"
+    //     // value={email}
+    //     name="email"
+    //     // onChange={(e) => setEmail(e.target.value)}
+    //     placeholder="your email"
+    //   />
+    //   <Input
+    //     type="password"
+    //     // value={password}
+    //     name="password"
+    //     // onChange={(e) => setPassword(e.target.value)}
+    //     placeholder="password"
+    //   />
+    //   <Input
+    //     type="password"
+    //     // value={confPassword}
+    //     name="conf-password"
+    //     // onChange={(e) => setConfPassword(e.target.value)}
+    //     placeholder="confirm your password"
+    //   />
+    //   <Input
+    //     type="file"
+    //     // value={avatar}
+    //     name="avatar"
+    //     // onChange={handleUpload}
+    //     placeholder=""
+    //   />
+    //   <button type="submit">Register</button>
+    //   <h4>OR</h4>
+    //   <Link to="/login">Login</Link>
+    //   </form>
+    // </div>
   );
 };
 

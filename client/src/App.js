@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Nav from './components/Nav';
 import Home from './components/Home';
 import About from './components/footer/About';
@@ -15,18 +15,19 @@ import Login from './components/Login';
 import Register from './components/Register';
 
 const App = () => {
-  const [count,setCount] = useState(0);
-  const addCount = () => {
-    setCount(count + 1);
-    console.log(count);
-  }
+  // Iulian - I added just to test useState.
+  // const [count,setCount] = useState(0);
+  // const addCount = () => {
+  //   setCount(count + 1);
+  //   console.log(count);
+  // }
 
   return (
     <Router>
       <Nav />
-      <main style={{ textAlign: 'center', height: '50rem' }}>
-        <button onClick={addCount}>+</button>
-        <div>{count}</div>
+      <main>
+        {/* <button onClick={addCount}>+</button>
+        <div>{count}</div> */}
         <Switch>
           {/* Need to add public.env */}
           <Route path="/" exact render={Home}></Route>

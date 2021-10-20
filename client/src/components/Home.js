@@ -14,7 +14,7 @@ const Home = () => {
       </li>
     );
   });
-console.log(navPath);
+// console.log(navPath);
   return (
     <div>
       <h1>Welcome to our Home page</h1>
