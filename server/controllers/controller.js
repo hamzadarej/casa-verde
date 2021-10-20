@@ -74,7 +74,6 @@ allControllers.addProduct = async (req, res) => {
 //616ec638b7d4def05aa683c5 bs for product id
 //angelos id 616e93763e129829c56c8f14
 allControllers.addToBasket = async (req, res) => {
-  console.log("til here works");
   try {
     const user = await User.findById(req.params.id);
     const product = await Product.findById(req.body.productID);
@@ -92,7 +91,33 @@ allControllers.addToBasket = async (req, res) => {
     res.status(400).json({ message: err.message });
   }
 };
+allControllers.getCheckout = async (req, res) => {
+  //we will get it from front end as obj  once the payment is done
+  const placedOrder = true;
+  try {
+    const user = await User.findById(req.params.id);
 
+    const product = await Product.find({
+      tags: {
+        $all: ["FIND THE WAY TO SEARCH FOR TIHS ARRAY OF IDS -> user.basket"],
+      },
+    });
+    //
+    //empty the basket
+    // const basketupdater = await User.findByIdAndUpdate(req.params.id, {
+    //   $set: {
+    //     basket: [],
+    //   },
+    // });
+    console.log(product.length);
+
+    res.status(200).json({ message: "inventory updated" });
+  } catch (err) {
+    res.status(err.status).json({
+      message: err.message,
+    });
+  }
+};
 //get all products
 allControllers.getAllProducts = async (req, res) => {
   try {
@@ -111,10 +136,7 @@ allControllers.getOneByID = async (req, res) => {
     res.status(200).json({
       message: `${user.username} has ${user.basket.length} stuff in his basket`,
       basket: user.basket
-        .map(
-          (product) =>
-            `${product.quantity} ${product.name} from ${product.category}`
-        )
+        .map((product) => ` ${product.name} from ${product.category}`)
         .join(", "),
     });
   } catch (err) {

@@ -10,7 +10,7 @@ router.post("/product/:id", allControllers.addProduct);
 // getAll http://localhost:5000/admin/users
 router.get("/users", allControllers.getAllUsers);
 //test
-router.post("/:id", allControllers.addToBasket);
+
 // delete Product.
 
 // update Product

@@ -21,4 +21,5 @@ router.get("/checkAuth", middleware.checkToken);
 // "productID": "write the id of ur product"
 // }
 router.post("/:id", allControllers.addToBasket);
+router.patch("/checkout/:id", allControllers.getCheckout);
 module.exports = router;
