@@ -71,28 +71,26 @@ allControllers.addProduct = async (req, res) => {
     });
 };
 // Add new Product from users
+//616ec638b7d4def05aa683c5 bs for product id
+//angelos id 616e93763e129829c56c8f14
 allControllers.addToBasket = async (req, res) => {
-  User.findById(req.params.id)
-    .then((user) => {
-      if (user && !user.admin && !user.username == "sven") {
-        const product = new Product({
-          // it must be a product from svens basket
-        });
-        product.save();
-
-        user.basket.push(product);
-
-        user.save();
-        res
-          .status(201)
-          .json({ message: "New product being added ✅", product });
-      } else {
-        return res.status(404).json({ message: "user NOT Found" });
-      }
-    })
-    .catch((err) => {
-      res.status(400).json({ message: err.message });
-    });
+  console.log("til here works");
+  try {
+    const user = await User.findById(req.params.id);
+    const product = await Product.findById(req.body.productID);
+    // it requres a {
+    // "productID": "write the id of ur product"
+    // }
+    if (user && product) {
+      user.basket.push(product);
+      user.save();
+      res.status(201).json({ message: "Product added to basket ✅" });
+    } else {
+      res.status(404).json({ message: "User or product not found" });
+    }
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
 };
 
 //get all products
