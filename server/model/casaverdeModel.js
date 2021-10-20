@@ -21,6 +21,7 @@ const userSchema = new Schema({
     required: [true, "can't be blank"],
     index: true,
   },
+  avatar: String,
   phone: { type: String },
   address: { type: String },
   city: { type: String },

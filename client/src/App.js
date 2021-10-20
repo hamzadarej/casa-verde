@@ -1,23 +1,23 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Nav from './components/Nav';
-import Home from './components/Home';
-import About from './components/footer/About';
-import Services from './components/Services';
-import Shop from './components/Shop/Shop';
-import Events from './components/Events';
-import Rent from './components/Rent';
-import BalletAndPilates from './components/BalletAndPilates';
-import TechnicalConsulting from './components/TechnicalConsulting';
-import Footer from './components/Footer';
-import Contact from './components/footer/Contact';
-import Login from './components/Login';
-import Register from './components/Register';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Nav from "./components/Nav";
+import Home from "./components/Home";
+import About from "./components/footer/About";
+import Services from "./components/Services";
+import Shop from "./components/Shop/Shop";
+import Events from "./components/Events";
+import Rent from "./components/Rent";
+import BalletAndPilates from "./components/BalletAndPilates";
+import TechnicalConsulting from "./components/TechnicalConsulting";
+import Footer from "./components/Footer";
+import Contact from "./components/footer/Contact";
+import Login from "./components/Login";
+import Register from "./components/Register";
 
-const App = () => {
+function App() {
   return (
     <Router>
       <Nav />
-      <main style={{ textAlign: 'center', height: '50rem' }}>
+      <main style={{ textAlign: "center", height: "50rem" }}>
         <Switch>
           {/* Need to add public.env */}
           <Route path="/" exact render={Home}></Route>
@@ -29,13 +29,13 @@ const App = () => {
           <Route path="/technic" exact render={TechnicalConsulting}></Route>
           <Route path="/about" exact render={About}></Route>
           <Route path="/contact" exact render={Contact}></Route>
-          <Route path="/login" exact render={Login}></Route>
-          <Route path="/register" exact render={Register}></Route>
+          <Route path="/login" exact component={Login}></Route>
+          <Route path="/register" exact component={Register}></Route>
         </Switch>
       </main>
       <Footer />
     </Router>
   );
-};
+}
 
 export default App;

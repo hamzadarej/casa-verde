@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const Input = styled.input`
   display: block;
@@ -10,27 +10,28 @@ const Input = styled.input`
   margin: 2% auto;
 `;
 
-const Register = (props) => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confPassword, setConfPassword] = useState('');
-  const [avatar, setAvatar] = useState('');
-
+const Register = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConf, setPasswordConf] = useState("");
+  const [avatar, setAvatar] = useState("");
+  axios.defaults.withCredentials = true;
   const handleSubmit = () => {
     const data = new FormData();
-    data.append('username', username);
-    data.append('password', username);
-    data.append('confPassword', username);
-    data.append('avatar', username);
+    data.append("username", username);
+    data.append("password", password);
+    data.append("passwordConf", passwordConf);
+    data.append("email", email);
+    data.append("avatar", avatar);
 
     axios
-      .post('http://localhost:5000/register', data, {
+      .post("user/register", data, {
         header: {
-          'Content-Type': 'multitpart/form-data',
+          "Content-Type": "multitpart/form-data",
         },
       })
-      .then((res) => console.log(res));
+      .then((res) => console.log(res.data));
   };
 
   const handleUpload = (e) => {
@@ -67,18 +68,12 @@ const Register = (props) => {
       />
       <Input
         type="password"
-        value={confPassword}
+        value={passwordConf}
         name="conf-password"
-        onChange={(e) => setConfPassword(e.target.value)}
+        onChange={(e) => setPasswordConf(e.target.value)}
         placeholder="confirm your password"
       />
-      <Input
-        type="file"
-        value={avatar}
-        name="avatar"
-        onChange={handleUpload}
-        placeholder=""
-      />
+      <Input type="file" name="avatar" onChange={handleUpload} placeholder="" />
       <button onClick={handleSubmit}>Register</button>
       <h4>OR</h4>
       <Link to="/login">Login</Link>
