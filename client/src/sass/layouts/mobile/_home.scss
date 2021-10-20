@@ -48,9 +48,14 @@
         li {
             height: 2em;
             margin-bottom: 1em;
+            padding-top: .5em;
             border: black solid 1px;
             border-radius: 1em;
             text-align: center;
+           
+            a {
+                text-decoration: none;
+            }
         }
     }
 
