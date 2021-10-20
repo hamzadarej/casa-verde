@@ -57,10 +57,10 @@ const cardElements = HomeData.map((obj) => {
 
   return (
     <div className="home">
-     <div>
-      <div className="roof"></div>
-      <h1>Casa Verde</h1>
-      <p>RAUM FÜR IDEEN</p>
+      <div className="home-top">
+        <div className="roof"></div>
+        <h1>Casa Verde</h1>
+        <p>RAUM FÜR IDEEN</p>
       </div>
       <ul>
       {homeElements}
@@ -77,7 +77,9 @@ const cardElements = HomeData.map((obj) => {
         })
       } */}
       </ul>
+      <div>
       {cardElements}
+      </div>
     </div>
   );
 };
