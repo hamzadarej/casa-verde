@@ -2,9 +2,9 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import NavPath from '../nav-path.json';
 
-const Home = () => {
+const Home = ({position}) => {
 
-  const navPath = NavPath.map((obj) => {
+  const homeElements = NavPath.filter((el) => el.position === position).map((obj) => {
     const { id, name, path } = obj;
       return (
       <li key={id}>
@@ -14,12 +14,12 @@ const Home = () => {
       </li>
     );
   });
-// console.log(navPath);
+// console.log(homeElements);
   return (
     <div>
       <h1>Welcome to our Home page</h1>
       <ul>
-      {navPath}
+      {homeElements}
       </ul>
     </div>
   );

@@ -17,7 +17,7 @@ function App() {
   return (
     <Router>
       <Nav />
-      <main style={{ textAlign: "center", height: "50rem" }}>
+      <main >
         <Switch>
           {/* Need to add public.env */}
           <Route path="/" exact render={Home}></Route>

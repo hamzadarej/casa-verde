@@ -8,15 +8,7 @@ const Footer = () => {
   let now = new Date();
   let year = now.getFullYear();
   return (
-    <footer
-      style={{
-        textAlign: 'center',
-        position: 'relative',
-        bottom: '20px',
-        left: '50vw',
-        transform: 'translateX(-50%)',
-      }}
-    >
+    <footer>
       {/* Need to add public.env */}
       <ul>
         <li>
