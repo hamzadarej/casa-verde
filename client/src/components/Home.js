@@ -18,13 +18,39 @@ const Home = () => {
 // console.log(homeElements);
 
 const homeElements = HomeData.map((obj) => {
-  const { id, name, path, img } = obj;
+  const { id, name, path} = obj;
     return (
       <li key={id}>
       <Link to={path}>
         {name}
       </Link>
     </li>
+    );
+});
+
+const cardElements = HomeData.map((obj) => {
+  const { id, name, path, img} = obj;
+    return (
+      <div key={id}>
+        <div>
+          <h3>{name}</h3>
+          <div>logo</div>
+        </div>
+        <p>
+        Lorem ipsum dolor sit amet,
+        consectetur adipiscing elit, 
+        sed do eiusmod tempor incididunt 
+        ut labore et dolore magna aliqua. 
+        </p>
+        <img src={img} alt="site images" />
+        <div>
+         <Link to={path}>
+           <button>
+           Go to {name}
+           </button>
+         </Link>
+        </div>
+     </div>
     );
 });
 
@@ -51,6 +77,7 @@ const homeElements = HomeData.map((obj) => {
         })
       } */}
       </ul>
+      {cardElements}
     </div>
   );
 };
