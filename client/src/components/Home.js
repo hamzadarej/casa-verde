@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavPath from '../nav-path.json';
+import HomeData from '../home.json';
 
 const Home = () => {
 
@@ -16,11 +16,28 @@ const Home = () => {
 //   });
 //   console.log("hello there!");
 // console.log(homeElements);
+
+const homeElements = HomeData.map((obj) => {
+  const { id, name, path, img } = obj;
+    return (
+      <li key={id}>
+      <Link to={path}>
+        {name}
+      </Link>
+    </li>
+    );
+});
+
+
   return (
     <div>
-      <h1>Welcome to our Home page</h1>
+     <div>
+      <div>Here comes the roof of the house</div>
+      <h1>Casa Verde</h1>
+      <p>RAUM FÜR IDEEN</p>
+      </div>
       <ul>
-      {/* {homeElements} */}
+      {homeElements}
       {/* {
         NavPath.filter((el) => el.position === center).map((data, index) => {
           const { id, name, path } = data;
