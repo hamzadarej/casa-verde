@@ -99,8 +99,8 @@ allControllers.getCheckout = async (req, res) => {
     const user = await User.findById(req.params.id);
 
     const product = await Product.find({
-      tags: {
-        $all: ["FIND THE WAY TO SEARCH FOR TIHS ARRAY OF IDS -> user.basket"],
+      _id: {
+        $in: user.basket,
       },
     });
     //
@@ -111,8 +111,11 @@ allControllers.getCheckout = async (req, res) => {
     //   },
     // });
     console.log(product.length);
-
-    res.status(200).json({ message: "inventory updated" });
+    console.log(user.basket);
+    res.status(200).json({
+      message:
+        "inventory updated, thank u for ur purchase we hope to see u again ",
+    });
   } catch (err) {
     res.status(err.status).json({
       message: err.message,
