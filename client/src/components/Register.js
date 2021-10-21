@@ -1,6 +1,12 @@
+
+
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
+
+
+
+
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -9,6 +15,7 @@ const Register = () => {
   const [passwordConf, setPasswordConf] = useState("");
   const [avatar, setAvatar] = useState("");
   axios.defaults.withCredentials = true;
+
   const handleSubmit = () => {
     const data = new FormData();
     data.append("username", username);
@@ -38,7 +45,11 @@ const Register = () => {
     <div className="register-container">
       <h2>Ready to take a free trial?</h2>
 
+  
+
+
       <input
+
         type="text"
         value={username}
         name="username"
@@ -66,6 +77,17 @@ const Register = () => {
         onChange={(e) => setPasswordConf(e.target.value)}
         placeholder="confirm your password"
       />
+
+      <input
+
+        type="file"
+        value={avatar}
+        name="avatar"
+        onChange={handleUpload}
+        placeholder=""
+      />
+      <button onClick={handleSubmit}>Register</button>
+
       <input type="file" name="avatar" onChange={handleUpload} placeholder="" />
       <button
         onClick={() => {
@@ -75,6 +97,7 @@ const Register = () => {
       >
         Register
       </button>
+
       <h4>OR</h4>
       <Link to="/login">Login</Link>
     </div>

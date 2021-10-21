@@ -4,7 +4,6 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
-const session = require("express-session");
 
 var app = express();
 // Initialize && Use Cors
@@ -17,6 +16,7 @@ app.use(
     credentials: true,
   })
 );
+const session = require("express-session");
 // session
 app.use(
   session({
@@ -72,15 +72,19 @@ const upload = multer({
     }
   },
 });
+
 // Initializing Routes
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/user");
 var adminRouter = require("./routes/admin");
+var ProductRouter = require("./routes/product");
+
 // use routes
 
-app.use("/", indexRouter);
-app.use("/user", upload.single("avatar"), usersRouter);
-app.use("/admin", adminRouter);
+app.use("/users", indexRouter);
+app.use("/user", usersRouter);
+app.use("/admin", upload.single("image"), adminRouter);
+app.use("/product", ProductRouter);
 
 // Exporting App
 module.exports = app;

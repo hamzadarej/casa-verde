@@ -11,6 +11,6 @@ router.get("products", allControllers.getAllProducts);
 router.get("/users", middleware.checkToken, allControllers.getAllUsers);
 // delete Product.
 
-// update Product
+// delete Product.
 
 module.exports = router;
