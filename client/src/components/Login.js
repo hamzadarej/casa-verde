@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { useHistory } from "react-router-dom";
 
-const Input = styled.input`
-  display: block;
-  border: none;
-  border-bottom: 2px solid green;
-  margin: 1% auto;
-`;
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -19,26 +13,39 @@ const Login = () => {
         username,
         password,
       })
-      .then((res) => console.log(res));
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+      });
   };
-
+  let history = useHistory();
+  const redirect = () => {
+    history.push("/");
+  };
+  //console.log(localStorage.getItem("token"));
   return (
     <div className="register-container">
-      <Input
+      <input
         type="text"
         value={username}
         name="username"
         onChange={(e) => setUsername(e.target.value)}
         placeholder="choose your username"
       />
-      <Input
+      <input
         type="password"
         value={password}
-        name="conf-password"
+        name="password"
         onChange={(e) => setPassword(e.target.value)}
         placeholder="confirm your password"
       />
-      <button onClick={loginUser}>Login</button>
+      <button
+        onClick={() => {
+          loginUser();
+          redirect();
+        }}
+      >
+        Login
+      </button>
       <h4>OR</h4>
       <Link to="/Register">Register</Link>
     </div>

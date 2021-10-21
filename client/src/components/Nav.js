@@ -1,33 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import NavPath from '../nav-path.json';
-import styled from 'styled-components';
-
-const Container = styled.div`
-  height: 3.75 rem;
-`;
-const Right = styled.div``;
-const Center = styled.div``;
-const Left = styled.div``;
+import React from "react";
+import { Link } from "react-router-dom";
+import NavPath from "../nav-path.json";
 
 const Nav = () => {
   const stylingObject = {
     ul: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      fontSize: '2rem',
-      gap: '1rem',
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      fontSize: "2rem",
+      gap: "1rem",
     },
     li: {
-      listStyle: 'none',
+      listStyle: "none",
     },
     a: {
-      textDecoration: 'none',
-      color: 'gray',
+      textDecoration: "none",
+      color: "gray",
     },
     text: {
-      textAlign: 'center',
+      textAlign: "center",
     },
   };
 
@@ -43,10 +35,10 @@ const Nav = () => {
   });
 
   return (
-    <header style={{ textAlign: 'center' }}>
+    <header style={{ textAlign: "center" }}>
       <div className="whatever">
         <nav>
-          <h1 class="logo" style={{ textAlign: 'center' }}>
+          <h1 class="logo" style={{ textAlign: "center" }}>
             Casa Verde
           </h1>
           <ul style={stylingObject.ul}>{navPath}</ul>

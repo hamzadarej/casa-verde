@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 const Input = styled.input`
@@ -23,12 +23,12 @@ const Register = () => {
     data.append("password", password);
     data.append("passwordConf", passwordConf);
     data.append("email", email);
-    data.append("avatar", avatar);
+    data?.append("avatar", avatar);
 
     axios
       .post("user/register", data, {
         header: {
-          "Content-Type": "multitpart/form-data",
+          "Content-Type": "multipart/form-data",
         },
       })
       .then((res) => console.log(res.data));
@@ -37,14 +37,15 @@ const Register = () => {
   const handleUpload = (e) => {
     setAvatar(e.target.files[0]);
   };
+  // i used useHistory to redirect after registering to the login page
+  let history = useHistory();
+  const redirect = () => {
+    history.push("/login");
+  };
   return (
     <div className="register-container">
       <h2>Ready to take a free trial?</h2>
-      <h4>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-        adipisci ipsa ratione provident eos, odio doloribus voluptates deleniti
-        aperiam harum!
-      </h4>
+
       <Input
         type="text"
         value={username}
@@ -74,7 +75,14 @@ const Register = () => {
         placeholder="confirm your password"
       />
       <Input type="file" name="avatar" onChange={handleUpload} placeholder="" />
-      <button onClick={handleSubmit}>Register</button>
+      <button
+        onClick={() => {
+          handleSubmit();
+          redirect();
+        }}
+      >
+        Register
+      </button>
       <h4>OR</h4>
       <Link to="/login">Login</Link>
     </div>
