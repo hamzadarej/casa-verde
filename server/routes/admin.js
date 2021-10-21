@@ -1,18 +1,16 @@
 var express = require("express");
 var router = express.Router();
 const allControllers = require("../controllers/controller");
-
+const middleware = require("../middlewares/middleware");
 /* add new Product. */
-// to addd only from http://localhost:5000/admin/product/616e93c53e129829c56c8f17 where 616e93c53e129829c56c8f17 is the id of sven
-router.post("/product/:id", allControllers.addProduct);
-
+router.post("/product", allControllers.addProduct);
+// get all products
+router.get("products", allControllers.getAllProducts);
 // get all users
-// getAll http://localhost:5000/admin/users
+// getAll http://localhost:5005/admin/users
 router.get("/users", allControllers.getAllUsers);
-//test
-
 // delete Product.
 
-// update Product
+// delete Product.
 
 module.exports = router;

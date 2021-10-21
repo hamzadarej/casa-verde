@@ -11,21 +11,13 @@ const Footer = () => {
     <footer
       style={{
         textAlign: 'center',
-<<<<<<< HEAD
-        position: 'absolute',
-        bottom: '30px',
-=======
         position: 'relative',
         bottom: '20px',
->>>>>>> 949613dcc830da22942590b8943d57589112145f
         left: '50vw',
         transform: 'translateX(-50%)',
       }}
     >
-<<<<<<< HEAD
-=======
       {/* Need to add public.env */}
->>>>>>> 949613dcc830da22942590b8943d57589112145f
       <ul>
         <li>
           <Link to={'/about'}>About</Link>

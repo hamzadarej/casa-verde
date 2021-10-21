@@ -11,7 +11,7 @@ allControllers.addUser = async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const user = await new User({
-      _id: new mongoose.Types.ObjectId(),
+      _id: mongoose.Types.ObjectId(),
       username: req.body.username,
       email: req.body.email,
       password: hashedPassword,
@@ -22,6 +22,7 @@ allControllers.addUser = async (req, res) => {
       state: req.body.state,
       zip: req.body.zip,
       country: req.body.country,
+      avatar: req.file.path,
     });
 
     await user.save();
@@ -149,20 +150,20 @@ allControllers.login = async (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
   const user = await User.findOne({ username });
+
   if (user == null) {
     return res.status(404).json({ message: "Cannot find user" });
   }
   try {
     if (await bcrypt.compare(password, user.password)) {
-      req.session.user = user;
       const token = createToken(user);
-      res.json({
+      req.session.user = user;
+      await res.json({
         auth: true,
         token,
         user: {
-          _id: user._id,
+          password: user.password,
           username: user.username,
-          email: user.email,
         },
       });
     } else {
@@ -175,8 +176,8 @@ allControllers.login = async (req, res) => {
   }
 };
 allControllers.logout = async (req, res) => {
-  res.cookie("token-key", "", { maxAge: 1 });
-  res.redirect("/");
+  res.cookie("token", "", { maxAge: 1 });
+  res.redirect("/user/login");
 };
 allControllers.getDate = async (req, res) => {
   res.status(200).json("welcome to casaVerde");

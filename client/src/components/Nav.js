@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React from 'react';
 import { Link } from 'react-router-dom';
 import NavPath from '../nav-path.json';
@@ -12,25 +13,30 @@ const Right = styled.div``;
 const Center = styled.div``;
 const Left = styled.div``;
 >>>>>>> 949613dcc830da22942590b8943d57589112145f
+=======
+import React from "react";
+import { Link } from "react-router-dom";
+import NavPath from "../nav-path.json";
+>>>>>>> ef902d8c49991a2646b772f11e59a05594c60941
 
 const Nav = () => {
   const stylingObject = {
     ul: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      fontSize: '2rem',
-      gap: '1rem',
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      fontSize: "2rem",
+      gap: "1rem",
     },
     li: {
-      listStyle: 'none',
+      listStyle: "none",
     },
     a: {
-      textDecoration: 'none',
-      color: 'gray',
+      textDecoration: "none",
+      color: "gray",
     },
     text: {
-      textAlign: 'center',
+      textAlign: "center",
     },
   };
 
@@ -46,10 +52,10 @@ const Nav = () => {
   });
 
   return (
-    <header style={{ textAlign: 'center' }}>
+    <header style={{ textAlign: "center" }}>
       <div className="whatever">
         <nav>
-          <h1 class="logo" style={{ textAlign: 'center' }}>
+          <h1 class="logo" style={{ textAlign: "center" }}>
             Casa Verde
           </h1>
 <<<<<<< HEAD
