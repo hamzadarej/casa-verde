@@ -1,5 +1,3 @@
-//Vendor
-@import "./vendor/_vendor-dir";
 
 //Abstracts
 @import "./abstracts/_abstracts-dir";
@@ -10,11 +8,8 @@
 //Components
 @import "./components/_components-dir";
 
+//Vendor
+@import "./vendor/_vendor-dir";
+
 //Layout
 @import "./layouts/_layouts-dir";
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
