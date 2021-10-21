@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
-import styled from "styled-components";
-
-const Input = styled.input`
-  display: block;
-  border: none;
-  border-bottom: 2px solid green;
-  margin: 2% auto;
-`;
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -46,35 +38,35 @@ const Register = () => {
     <div className="register-container">
       <h2>Ready to take a free trial?</h2>
 
-      <Input
+      <input
         type="text"
         value={username}
         name="username"
         onChange={(e) => setUsername(e.target.value)}
         placeholder="choose your username"
       />
-      <Input
+      <input
         type="email"
         value={email}
         name="email"
         onChange={(e) => setEmail(e.target.value)}
         placeholder="your email"
       />
-      <Input
+      <input
         type="password"
         value={password}
         name="password"
         onChange={(e) => setPassword(e.target.value)}
         placeholder="password"
       />
-      <Input
+      <input
         type="password"
         value={passwordConf}
         name="conf-password"
         onChange={(e) => setPasswordConf(e.target.value)}
         placeholder="confirm your password"
       />
-      <Input type="file" name="avatar" onChange={handleUpload} placeholder="" />
+      <input type="file" name="avatar" onChange={handleUpload} placeholder="" />
       <button
         onClick={() => {
           handleSubmit();

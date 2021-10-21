@@ -8,7 +8,7 @@ router.post("/product", allControllers.addProduct);
 router.get("products", allControllers.getAllProducts);
 // get all users
 // getAll http://localhost:5005/admin/users
-router.get("/users", allControllers.getAllUsers);
+router.get("/users", middleware.checkToken, allControllers.getAllUsers);
 // delete Product.
 
 // update Product
