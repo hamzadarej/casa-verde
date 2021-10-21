@@ -8,7 +8,19 @@ const Footer = () => {
   let now = new Date();
   let year = now.getFullYear();
   return (
+<<<<<<< HEAD
     <footer>
+=======
+    <footer
+      style={{
+        textAlign: 'center',
+        position: 'relative',
+        bottom: '0px',
+        left: '50vw',
+        transform: 'translateX(-50%)',
+      }}
+    >
+>>>>>>> 7a622fedff4367841f640bf44c0285b1a4e2576e
       {/* Need to add public.env */}
       <ul>
         <li>

@@ -17,7 +17,13 @@ import Logout from "./components/Logout";
 
 function App() {
   return (
-    <Router>
+    <Router
+      state={{
+        width: "100vw",
+        height: "100v",
+        display: "flex"
+      }}
+    >
       <Nav />
       <main >
         <Switch>

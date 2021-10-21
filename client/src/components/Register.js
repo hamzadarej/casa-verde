@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
@@ -39,7 +37,6 @@ const Register = () => {
   return (
     <div className="register-container">
       <h2>Ready to take a free trial?</h2>
-
       <input
         type="text"
         value={username}
@@ -68,13 +65,17 @@ const Register = () => {
         onChange={(e) => setPasswordConf(e.target.value)}
         placeholder="confirm your password"
       />
-      <input
-        type="file"
-        name="avatar"
-        onChange={handleUpload}
-        placeholder=""
-      />
-      <button onClick={() => {handleSubmit(); redirect();} }>Register</button>
+
+      <input type="file" name="avatar" onChange={handleUpload} placeholder="" />
+
+      <button
+        onClick={() => {
+          handleSubmit();
+          redirect();
+        }}
+      >
+        Register
+      </button>
 
       <h4>OR</h4>
       <Link to="/login">Login</Link>
