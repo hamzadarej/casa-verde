@@ -15,7 +15,7 @@ const Home = () => {
   const cardElements = HomeData.map((obj) => {
     const { id, name, path, img } = obj;
     return (
-      <div key={id}>
+      <div key={id} className="card-element">
         <div>
           <h3>{name}</h3>
           <div>logo</div>
