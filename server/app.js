@@ -4,15 +4,6 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
-<<<<<<< HEAD
-
-// Initializing Routes
-var indexRouter = require("./routes/index");
-var usersRouter = require("./routes/user");
-var ProductRouter = require("./routes/product");
-=======
-const session = require("express-session");
->>>>>>> ef902d8c49991a2646b772f11e59a05594c60941
 
 var app = express();
 // Initialize && Use Cors
@@ -25,6 +16,7 @@ app.use(
     credentials: true,
   })
 );
+const session = require("express-session");
 // session
 app.use(
   session({
@@ -80,11 +72,13 @@ const upload = multer({
     }
   },
 });
+
 // Initializing Routes
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/user");
 var adminRouter = require("./routes/admin");
 var ProductRouter = require("./routes/product");
+
 // use routes
 
 app.use("/users", indexRouter);
