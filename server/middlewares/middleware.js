@@ -29,7 +29,7 @@ middleware.checkToken = async (req, res, next) => {
   console.log(req.headers.authorization);
 
   // Take Bearer out
-  const accessToken = req.headers.authorization.split(" ")[1];
+  const accessToken = req.headers.authorization.split(" ")[0];
   console.log(accessToken);
   if (accessToken == "null") {
     return res.json({ auth: false, message: "User NOT Authenticated!" });

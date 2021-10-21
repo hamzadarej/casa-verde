@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavPath from '../nav-path.json';
+import Menu from '../menu.json';
 
 const Nav = () => {
-  
-  const navPath = NavPath.map((obj) => {
+
+  const navMenu = Menu.map((obj) => {
     const { id, name, path } = obj;
     return (
       <li key={id}>
@@ -22,7 +22,7 @@ const Nav = () => {
          <div>
            img goes here
          </div>
-          <ul>{navPath}</ul>
+          <ul>{navMenu}</ul>
         </nav>
       </div>
     </header>

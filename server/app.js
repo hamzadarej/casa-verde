@@ -16,10 +16,20 @@ app.use(
     credentials: true,
   })
 );
+const session = require("express-session");
+// session
+app.use(
+  session({
+    key: "token",
+    secret: process.env.TOKEN_TEXT,
+    resave: true,
+    saveUninitialized: false,
+  })
+);
 // Setting up Dependencies
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -62,15 +72,19 @@ const upload = multer({
     }
   },
 });
+
 // Initializing Routes
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/user");
 var adminRouter = require("./routes/admin");
+var ProductRouter = require("./routes/product");
+
 // use routes
 
-app.use("/", indexRouter);
-app.use("/user",upload.single("avatar"), usersRouter);
-app.use("/admin",adminRouter);
+app.use("/users", indexRouter);
+app.use("/user", usersRouter);
+app.use("/admin", upload.single("image"), adminRouter);
+app.use("/product", ProductRouter);
 
 // Exporting App
 module.exports = app;

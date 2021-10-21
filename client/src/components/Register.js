@@ -1,6 +1,8 @@
+
+
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -9,6 +11,7 @@ const Register = () => {
   const [passwordConf, setPasswordConf] = useState("");
   const [avatar, setAvatar] = useState("");
   axios.defaults.withCredentials = true;
+
   const handleSubmit = () => {
     const data = new FormData();
     data.append("username", username);
@@ -16,6 +19,8 @@ const Register = () => {
     data.append("passwordConf", passwordConf);
     data.append("email", email);
     data.append("avatar", avatar);
+    //data?.append("avatar", avatar);
+
     axios
       .post("user/register", data, {
         header: {
@@ -27,9 +32,15 @@ const Register = () => {
   const handleUpload = (e) => {
     setAvatar(e.target.files[0]);
   };
+  // i used useHistory to redirect after registering to the login page
+  let history = useHistory();
+  const redirect = () => {
+    history.push("/login");
+  };
   return (
     <div className="register-container">
       <h2>Ready to take a free trial?</h2>
+
       <input
         type="text"
         value={username}
@@ -58,8 +69,25 @@ const Register = () => {
         onChange={(e) => setPasswordConf(e.target.value)}
         placeholder="confirm your password"
       />
-      <input type="file" name="avatar" onChange={handleUpload} placeholder="" />
+      <input
+        type="file"
+        value={avatar}
+        name="avatar"
+        onChange={handleUpload}
+        placeholder=""
+      />
       <button onClick={handleSubmit}>Register</button>
+
+      <input type="file" name="avatar" onChange={handleUpload} placeholder="" />
+      <button
+        onClick={() => {
+          handleSubmit();
+          redirect();
+        }}
+      >
+        Register
+      </button>
+
       <h4>OR</h4>
       <Link to="/login">Login</Link>
     </div>

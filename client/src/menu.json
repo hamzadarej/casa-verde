@@ -41,6 +41,7 @@
     "name": "Technical Services",
     "path": "/technic"
   },
+
   {
     "id": 7,
     "position": "left",
@@ -58,5 +59,11 @@
     "position": "left",
     "name": "About",
     "path": "/about"
+  },
+  {
+    "id": 10,
+    "position": "left",
+    "name": "logout",
+    "path": "/logout"
   }
 ]
