@@ -18,8 +18,7 @@ const Register = () => {
     data.append("password", password);
     data.append("passwordConf", passwordConf);
     data.append("email", email);
-    data.append("avatar", avatar);
-    //data?.append("avatar", avatar);
+    data?.append("avatar", avatar);
 
     axios
       .post("user/register", data, {
@@ -65,7 +64,7 @@ const Register = () => {
       <input
         type="password"
         value={passwordConf}
-        name="conf-password"
+        name="passwordConf"
         onChange={(e) => setPasswordConf(e.target.value)}
         placeholder="confirm your password"
       />
