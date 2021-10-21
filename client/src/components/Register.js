@@ -71,22 +71,11 @@ const Register = () => {
       />
       <input
         type="file"
-        value={avatar}
         name="avatar"
         onChange={handleUpload}
         placeholder=""
       />
-      <button onClick={handleSubmit}>Register</button>
-
-      <input type="file" name="avatar" onChange={handleUpload} placeholder="" />
-      <button
-        onClick={() => {
-          handleSubmit();
-          redirect();
-        }}
-      >
-        Register
-      </button>
+      <button onClick={() => {handleSubmit(); redirect();} }>Register</button>
 
       <h4>OR</h4>
       <Link to="/login">Login</Link>
