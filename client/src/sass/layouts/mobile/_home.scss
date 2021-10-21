@@ -10,8 +10,6 @@
     .home-top {
         width: 100vw;
         height: auto;
-        display: flex;
-        align-items: center;
         @include flex;
         flex-direction: column;
 
@@ -21,24 +19,28 @@
             height: 0;
             border-style: solid;
             border-width: 0 7em 6em;
-            border-color: transparent transparent #c4c4c4;
+            border-color: transparent transparent $orange;
+            margin: 1em 0;
         }
     
         h1 {
-            position: relative;  
-            bottom: 2em;
-            right: .8em;
+            position: absolute;
+            //bottom: 2em;
+            // right: .8em;
             z-index: 1;
+          
         }
     
         h1+p {
-            position: relative;
-            bottom: 4.5em;
-            left: .5em;
-            width: 75%;
+            position: absolute;
+            top: 17em;
+            left: 5.5em;
+            width: 60%;
             background-color: #88D467;
+            opacity: .7;
             padding: .5em 0;
             text-align: center;
+            
         }
     }
 
