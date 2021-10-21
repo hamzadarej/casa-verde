@@ -12,7 +12,7 @@ const Footer = () => {
       style={{
         textAlign: 'center',
         position: 'relative',
-        bottom: '20px',
+        bottom: '0px',
         left: '50vw',
         transform: 'translateX(-50%)',
       }}

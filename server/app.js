@@ -4,7 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
-
+const session = require("express-session");
 var app = express();
 // Initialize && Use Cors
 const cors = require("cors");
@@ -16,13 +16,14 @@ app.use(
     credentials: true,
   })
 );
-const session = require("express-session");
+
 // session
+
 app.use(
   session({
     key: "token",
     secret: process.env.TOKEN_TEXT,
-    resave: true,
+    resave: false,
     saveUninitialized: false,
   })
 );
@@ -81,10 +82,13 @@ var ProductRouter = require("./routes/product");
 
 // use routes
 
-app.use("/users", indexRouter);
-app.use("/user", usersRouter);
-app.use("/admin", upload.single("image"), adminRouter);
+app.use("/", indexRouter);
+app.use("/user", upload.single("avatar"), usersRouter);
+app.use("/admin", adminRouter);
 app.use("/product", ProductRouter);
 
+app.all("*", (req, res, next) => {
+  next(new Error(`Can't find ${req.originalUrl} on this server`, 404));
+});
 // Exporting App
 module.exports = app;

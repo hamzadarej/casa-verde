@@ -6,10 +6,10 @@ const createToken = (user) => {
     process.env.TOKEN_TEXT,
     {
       // in seconds 600s = 10 min
-      expiresIn: 100,
+      expiresIn: 600,
     }
   );
-  console.log(accessToken);
+
   return accessToken;
 };
 

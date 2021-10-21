@@ -125,7 +125,7 @@ allControllers.getAllProducts = async (req, res) => {
     const products = await Product.find();
     res.status(200).json(products);
   } catch (err) {
-    res.status(err.message).json({ message: err.message });
+    res.status(400).json({ message: err.message });
   }
 };
 // get all products from a user(sven) upon the id
@@ -177,7 +177,7 @@ allControllers.login = async (req, res) => {
 };
 allControllers.logout = async (req, res) => {
   res.cookie("token", "", { maxAge: 1 });
-  res.redirect("/user/login");
+  res.redirect("");
 };
 allControllers.getDate = async (req, res) => {
   res.status(200).json("welcome to casaVerde");

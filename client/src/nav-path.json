@@ -1,42 +1,10 @@
 [
-<<<<<<< HEAD
-    {
-      "id": 0,
-      "name": "Home",
-      "path": "/"
-    },
-    {
-      "id": 1,
-      "name": "Shop",
-      "path": "/shop"
-    },
-    {
-      "id": 2,
-      "name": "Decoration Services",
-      "path": "/services"
-    },
-    {
-      "id": 3,
-      "name": "Events",
-      "path": "/events"
-    },
-    {
-        "id": 4,
-        "name": "Rental Services",
-        "path": "/rent"
-      },
-      {
-        "id": 0,
-        "name": "Ballet/Pilates",
-        "path": "/ballet-pilates"
-      },
-      {
-        "id": 0,
-        "name": "Technical Services",
-        "path": "/technic"
-      }
-  ]
-=======
+  {
+    "id": 0,
+    "position": "right",
+    "name": "logo",
+    "url": "/"
+  },
   {
     "id": 1,
     "position": "Center",
@@ -51,22 +19,21 @@
   },
 
   {
-    "id": 8,
+    "id": 3,
     "position": "left",
     "name": "sign in",
     "path": "/login"
   },
   {
-    "id": 9,
+    "id": 4,
     "position": "left",
     "name": "sign up",
     "path": "/register"
   },
   {
-    "id": 10,
+    "id": 5,
     "position": "left",
     "name": "logout",
     "path": "/logout"
   }
 ]
->>>>>>> 949613dcc830da22942590b8943d57589112145f

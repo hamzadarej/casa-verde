@@ -16,13 +16,16 @@ import Logout from "./components/Logout";
 
 function App() {
   return (
-    <Router>
+    <Router
+      state={{
+        width: "100vw",
+        height: "100v",
+        display: "flex"
+      }}
+    >
       <Nav />
 
-      <main style={{ textAlign: 'center', height: '50vh' }}>
-
-
-
+      <main style={{ textAlign: "center", height: "50vh" }}>
         <Switch>
           {/* Need to add public.env */}
           <Route path="/" exact render={Home}></Route>
