@@ -1,2 +1,5 @@
 // Import style components
-@import "./home";
+/* Media Query for Mobile Devices */
+@media (max-width: 480px) {
+    @import "./home";
+}

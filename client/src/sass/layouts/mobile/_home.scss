@@ -4,16 +4,17 @@
     width: 100%;
     height: auto;
     border: red solid 1px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     flex-direction: column;
     
     .home-top {
+        width: 100vw;
+        height: auto;
         display: flex;
-        justify-content: center;
         align-items: center;
+        @include flex;
         flex-direction: column;
+
 
         .roof {
             width: 0;
@@ -42,7 +43,7 @@
     }
 
     ul {
-        width: 90%;
+        width: 14em;
         list-style: none;
 
         li {
