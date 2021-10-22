@@ -16,7 +16,7 @@ const Home = () => {
     const { id, name, path, img } = obj;
     return (
       <div key={id} className="card-element">
-        <div>
+        <div className="card-top">
           <h3>{name}</h3>
           <div>logo</div>
         </div>

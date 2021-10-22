@@ -62,12 +62,30 @@
     }
 
     .card-element {
-        width: 70vw;
-        height: auto;
-        border: black solid 1x;
+        width: 75vw;
+        height: 50vh;
         @include flex;
+        justify-content: space-evenly;
         flex-direction: column;
         margin: 1em;
+        text-align: center;
+        border: 2px solid salmon;
+        border-radius: 1em;
+
+        button {
+            width: 35vw;
+            height: 8vh;
+            border-radius: .5em;
+            position: relative;
+            left: 3em;
+            top: 1em;
+        }
+    }
+
+    .card-top {
+        width: 100%;
+        @include flex;
+        justify-content: space-around;
     }
 
 }
