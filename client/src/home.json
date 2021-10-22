@@ -3,7 +3,7 @@
         "id": 0,
         "name": "Shop",
         "path": "/shop",
-        "img": ""
+        "img": "./images/shop.png"
       },
       {
         "id": 1,
