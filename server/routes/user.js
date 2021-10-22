@@ -21,6 +21,7 @@ router.get("/checkAuth", middleware.checkToken);
 // it requres req.body.productID  => {
 // "productID": "write the id of ur product"
 // }
-router.post("/:id", allControllers.addToBasket);
+/* with get to view Products from a specific user or the admin (to view the basket) http://localhost:5000/product/616e93c53e129829c56c8f17 where id is the id of the user */
+router.post("/:id", allControllers.addToBasket).get("/:id", allControllers.getOneByID);
 router.patch("/checkout/:id", allControllers.getCheckout);
 module.exports = router;

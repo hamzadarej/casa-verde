@@ -16,16 +16,16 @@ app.use(
     credentials: true,
   })
 );
-// const session = require("express-session");
-// // session
-// app.use(
-//   session({
-//     key: "token",
-//     secret: process.env.TOKEN_TEXT,
-//     resave: true,
-//     saveUninitialized: false,
-//   })
-// );
+const session = require("express-session");
+// session
+app.use(
+  session({
+    key: "token",
+    secret: process.env.TOKEN_TEXT,
+    resave: true,
+    saveUninitialized: false,
+  })
+);
 // Setting up Dependencies
 app.use(morgan("dev"));
 app.use(express.json());

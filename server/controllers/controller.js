@@ -73,14 +73,54 @@ allControllers.addProduct = async (req, res) => {
 };
 // Add new Product from users
 //616ec638b7d4def05aa683c5 bs for product id
-//angelos id 616e93763e129829c56c8f14
+//
 allControllers.addToBasket = async (req, res) => {
   try {
-    const user = await User.findById(req.params.id);
-    const product = await Product.findById(req.body.productID);
+  
+//             Tareq's version 
+//
+//
     // it requres a {
+    // "productId": "write the id of ur product"
+    // "purchasedQuantity" : number (min 1)
+    // }
+    // basket: [
+    //{productId:"ergest", purchasedQuantity: 2},
+    // {productId:"45g5g4", purchasedQuantity: 4}]
+
+    // if (user && product) {
+    //   if (user.basket.some((item) => item.productId == req.body.productId)) {
+    //     let existingProduct = user.basket.filter(
+    //       (item) => item.productId == req.body.productId
+    //     )[0];
+    //     // = [... user.basket, ]
+    //     existingProduct.purchasedQuantity =
+    //       existingProduct.purchasedQuantity + req.body.purchasedQuantity;
+    //     user.basket = user.basket
+    //       .filter((item) => item.productId !== req.body.productId)
+    //       .push(existingProduct);
+
+    //     await user.save();
+    //   } else {
+    //     user.basket.push({
+    //       productId: req.body.productId,
+    //       purchasedQuantity: req.body.purchasedQuantity,
+    //     });
+
+    //     await user.save();
+    //     console.log("hey");
+    //   }
+
+    //   console.log(user.basket.length);
+    //   console.log(user.basket);
+    //   res.status(201).json({ message: "Product added to basket ✅" });
+    // } else {
+    //   res.status(404).json({ message: "User or product not found" });
+    // }// it requres a {
     // "productID": "write the id of ur product"
     // }
+    const user = await User.findById(req.params.id);
+    const product = await Product.findById(req.body.productId);
     if (user && product) {
       user.basket.push(product);
       user.save();
@@ -97,24 +137,62 @@ allControllers.getCheckout = async (req, res) => {
   const placedOrder = true;
   try {
     const user = await User.findById(req.params.id);
-
+    
     const product = await Product.find({
       _id: {
         $in: user.basket,
       },
     });
-    //
     //empty the basket
     // const basketupdater = await User.findByIdAndUpdate(req.params.id, {
     //   $set: {
     //     basket: [],
     //   },
     // });
-    console.log(product.length);
-    console.log(user.basket);
-    res.status(200).json({
+
+    //console.log(user.basket);
+      const quantityCounter ={}
+      user.basket.forEach(function(item){
+        quantityCounter[item._id] = quantityCounter[item._id] ? quantityCounter[item._id]+1 : 1;
+      })
+      
+product.forEach((item) => {
+
+  item.quantity = item.quantity + quantityCounter[item._id];
+ // console.log(quantityCounter[item._id])
+ 
+});
+// const updatedProduct = await Product.findByIdAndUpdate(
+//   {
+//   $in: product,
+// }, {
+//   $set: {
+//     quantity:  666,
+   
+//   },
+// })
+const updatedProduct= product.map((el)=> 
+
+   async function(){
+   
+    await Product.findByIdAndUpdate(
+      {
+      $in: el._id,
+    }, {
+      $set: {
+        quantity:  el.quantity,
+       
+      },
+    }) });
+   
+
+    console.log(quantityCounter);
+    console.log(product.map((el)=> `${el._id} only ${el.quantity} left`));
+   
+// update the db
+ res.status(200).json({
       message:
-        "inventory updated, thank u for ur purchase we hope to see u again ",
+        "inventory updated, thank u for ur purchase we hope to see u again ",updatedProduct
     });
   } catch (err) {
     res.status(err.status).json({
@@ -140,7 +218,7 @@ allControllers.getOneByID = async (req, res) => {
     res.status(200).json({
       message: `${user.username} has ${user.basket.length} stuff in his basket`,
       basket: user.basket
-        .map((product) => ` ${product.name} from ${product.category}`)
+        .map((item) => ` ${item.name} from ${item.category} `)
         .join(", "),
     });
   } catch (err) {
