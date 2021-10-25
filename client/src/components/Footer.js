@@ -28,10 +28,10 @@ const Footer = () => {
         {footerMenu}
       </ul>
       <p>Social Media (???)</p>
-      <div className="--footer-main-container">
+      <div className="footer-main">
         Made with ❤️ by team Casa Verde
       </div>
-      <div className="--footer-secondary-container">
+      <div className="footer-secondary">
         Copyrights reserved Ⓒ {year} Casa Verde
       </div>
     </footer>
