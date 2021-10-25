@@ -1,0 +1,37 @@
+// Navigation setup
+
+header nav {
+    padding: 5vh 10vw;
+    @include flex;
+    justify-content:  space-between;
+    background-color: $cream;
+}
+
+.hamburger-menu {
+    @include flex;
+    flex-direction: column;
+}
+
+.menu-top,
+.menu-center,
+.menu-bottom {
+    width: 2em;
+    height: .3em;
+    margin: .1em;
+    background-color: black;
+    border: black solid 1px;
+    border-radius: 1em;
+}
+
+.menu-roof {
+    width: 0;        
+    height: 0;
+    border-style: solid;
+    border-width: 0 1.1em .7em;        
+    border-color: transparent transparent black;
+    margin-bottom: .1em;
+}
+
+ul {
+    display: none;
+}
