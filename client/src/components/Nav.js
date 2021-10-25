@@ -17,14 +17,19 @@ const Nav = () => {
 
   return (
     <header>
-      <div className="whatever">
         <nav>
-         <div>
+         <div className="logo">
            img goes here
          </div>
-          <ul>{navMenu}</ul>
+         <div>
+            <div className="hamburger-menu">
+              <div className="menu-top"></div>
+              <div className="menu-center"></div>
+              <div className="menu-bottom"></div>
+            </div>
+            <ul>{navMenu}</ul>
+          </div>
         </nav>
-      </div>
     </header>
   );
 };
