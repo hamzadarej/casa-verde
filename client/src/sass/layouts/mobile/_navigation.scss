@@ -9,7 +9,7 @@ header nav {
 }
 
 // Hamburger menu setup
-.hamburger-menu {
+.hamburger {
     @include flex;
     flex-direction: column;
 }
@@ -39,4 +39,13 @@ header nav {
 // Ul setup
 ul {
     display: none;
+}
+
+.open {
+    .menu-roof {
+        position: relative;
+        transform: rotate(30deg);
+        margin-bottom: .4em;
+        right: -.3em;
+    }
 }

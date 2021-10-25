@@ -1,8 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import Menu from '../menu.json';
 
 const Nav = () => {
+
+  const [open, setOpen] = useState(false);
+  const [close, setClose] = useState(true);
+
 
   const navMenu = Menu.map((obj) => {
     const { id, name, path } = obj;
@@ -15,6 +19,11 @@ const Nav = () => {
     );
   });
 
+  const showMenu = () => {
+    setOpen(open);
+    setClose(!close);
+  }
+
   return (
     <header>
         <nav>
@@ -22,7 +31,7 @@ const Nav = () => {
            img goes here
          </div>
          <div>
-            <div className="hamburger-menu">
+            <div className={close ? "hamburger close" : "hamburger open"} onClick={showMenu}>
               <div className="menu-roof"></div>
               <div className="menu-top"></div>
               <div className="menu-center"></div>
