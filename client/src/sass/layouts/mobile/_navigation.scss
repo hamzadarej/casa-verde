@@ -2,10 +2,14 @@
 
 // Nav setup
 header nav {
-    padding: 2vh 7vw;
-    @include flex;
-    justify-content:  space-between;
+    flex-direction: column;
     background-color: $cream;
+
+    .nav-top {
+        padding: 2vh 7vw;
+        @include flex;
+        justify-content:  space-between;
+    }
 }
 
 // Hamburger menu setup
@@ -37,9 +41,6 @@ header nav {
 }
 
 // Ul setup
-ul {
-    display: none;
-}
 
 .open {
     .menu-roof {
@@ -47,5 +48,38 @@ ul {
         transform: rotate(30deg);
         margin-bottom: .4em;
         right: -.3em;
+        transition: .2s;
+    }
+}
+
+.close {
+    transition: .2s;
+}
+
+.none{
+    height: 0;
+    display: none;
+    transition: 2s;
+}
+
+.show {
+    width: 60vw;
+    height: 100vh;
+    position: relative;
+    float: right;
+    @include flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background-color: $cream;
+    transition: 2s;
+
+    li {
+        padding-left: 1em;
+        list-style: none;
+    }
+    
+    a {
+        text-decoration: none;
     }
 }
