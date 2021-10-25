@@ -32,7 +32,7 @@ const Footer = () => {
         Made with ❤️ by team Casa Verde
       </div>
       <div className="--footer-secondary-container">
-        All copyrights reserved Ⓒ {year} Casa Verde
+        Copyrights reserved Ⓒ {year} Casa Verde
       </div>
     </footer>
   );
