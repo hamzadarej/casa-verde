@@ -23,6 +23,7 @@ const Nav = () => {
          </div>
          <div>
             <div className="hamburger-menu">
+              <div className="menu-roof"></div>
               <div className="menu-top"></div>
               <div className="menu-center"></div>
               <div className="menu-bottom"></div>
