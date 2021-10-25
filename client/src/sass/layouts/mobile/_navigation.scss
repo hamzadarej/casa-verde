@@ -1,17 +1,20 @@
 // Navigation setup
 
+// Nav setup
 header nav {
-    padding: 5vh 10vw;
+    padding: 2vh 7vw;
     @include flex;
     justify-content:  space-between;
     background-color: $cream;
 }
 
+// Hamburger menu setup
 .hamburger-menu {
     @include flex;
     flex-direction: column;
 }
 
+// Hamburger menu content
 .menu-top,
 .menu-center,
 .menu-bottom {
@@ -23,6 +26,7 @@ header nav {
     border-radius: 1em;
 }
 
+// Hamburger menu (Casa roof)
 .menu-roof {
     width: 0;        
     height: 0;
@@ -32,6 +36,7 @@ header nav {
     margin-bottom: .1em;
 }
 
+// Ul setup
 ul {
     display: none;
 }
