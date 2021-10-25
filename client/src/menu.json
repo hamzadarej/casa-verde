@@ -63,6 +63,12 @@
   {
     "id": 10,
     "position": "left",
+    "name": "Contact",
+    "path": "/contact"
+  },
+  {
+    "id": 11,
+    "position": "left",
     "name": "logout",
     "path": "/logout"
   }
