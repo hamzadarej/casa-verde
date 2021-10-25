@@ -12,12 +12,6 @@ const Footer = () => {
       {/* Need to add public.env */}
       <ul>
         <li>
-          <Link to={'/about'}>About</Link>
-        </li>
-        <li>
-          <Link to={'/contact'}>Contact Page</Link>
-        </li>
-        <li>
           <Link to={'/impressum'}>Impressum</Link>
         </li>
         <li>
