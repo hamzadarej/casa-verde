@@ -40,8 +40,7 @@ header nav {
     margin-bottom: .1em;
 }
 
-// Ul setup
-
+// Open nav setup
 .open {
     .menu-roof {
         position: relative;
@@ -52,16 +51,19 @@ header nav {
     }
 }
 
+// Close nav setup
 .close {
     transition: .2s;
 }
 
+// Ul display none
 .none{
     height: 0;
     display: none;
     transition: 2s;
 }
 
+// Show nav setup
 .show {
     width: 60vw;
     height: 100vh;
@@ -74,11 +76,13 @@ header nav {
     background-color: $cream;
     transition: 2s;
 
+    // Li setup
     li {
         padding-left: 1em;
         list-style: none;
     }
     
+    // Link's setup
     a {
         text-decoration: none;
     }
