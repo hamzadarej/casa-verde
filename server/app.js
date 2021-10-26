@@ -48,7 +48,7 @@ mongoose
   });
 
 // Alow uploads
-app.use("/uploads", express.static("uploads"));
+/*app.use("/uploads", express.static("uploads"));
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -72,7 +72,7 @@ const upload = multer({
       cb(new Error("Only .jpg .gif .png files are OK"), false);
     }
   },
-});
+});*/
 
 // Initializing Routes
 var indexRouter = require("./routes/index");
