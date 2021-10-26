@@ -7,7 +7,6 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConf, setPasswordConf] = useState("");
-  //const [avatar, setAvatar] = useState("");
   axios.defaults.withCredentials = true;
 
   const handleSubmit = () => {
@@ -16,7 +15,6 @@ const Register = () => {
     data.append("password", password);
     data.append("passwordConf", passwordConf);
     data.append("email", email);
-    //data?.append("avatar", avatar);
 
     axios
       .post("user/register", data, {
@@ -26,11 +24,6 @@ const Register = () => {
       })
       .then((res) => console.log(res.data));
   };
-  /*const handleUpload = (e) => {
-    setAvatar(e.target.files[0]);
-  };
-   <input type="file" name="avatar" onChange={handleUpload} placeholder="" />
-  */
   // i used useHistory to redirect after registering to the login page
   let history = useHistory();
   const redirect = () => {
@@ -68,7 +61,6 @@ const Register = () => {
         placeholder="confirm your password"
       />
 
-     
 
       <button
         onClick={() => {
