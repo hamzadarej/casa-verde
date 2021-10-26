@@ -33,7 +33,7 @@ router.get("/getOne", allControllers.getOneUser);
 /* with delete to remove a productID from basket(IF THE ID EXISTS 3 TIMES REMOVES IT ALL) http://localhost:5000/user/:id where id is the id of the user */
 
 // get all products
-router.get("/products", middleware.checkToken, allControllers.getAllProducts);
+router.get("/products", middleware.checkToken, allProductControllers.getAllProducts);
 //when the user adds to basket a product that only sven can create http://localhost:5000/user/:id where the :id is the id of the user ....
 
 // it requres req.body.productID  => {

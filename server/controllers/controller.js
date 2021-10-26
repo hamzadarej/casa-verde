@@ -1,5 +1,5 @@
 // Controller functions come here
-const { User, Product } = require("../model/casaverdeModel");
+const { User } = require("../model/casaverdeModel");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const { createToken } = require("../JWT-check");
@@ -40,7 +40,6 @@ allControllers.getAllUsers = async (req, res) => {
     res.status(err.message).json({ message: err.message });
   }
 };
-
 
 // Login
 allControllers.login = async (req, res) => {
