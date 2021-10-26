@@ -1,49 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import NavPath from "../nav-path.json";
+import Menu from "../menu.json";
 
 const Nav = () => {
-  const stylingObject = {
-    ul: {
-      display: "flex",
-      flexDirection: "row",
-      justifyContent: "center",
-      fontSize: "2rem",
-      gap: "1rem",
-    },
-    li: {
-      listStyle: "none",
-    },
-    a: {
-      textDecoration: "none",
-      color: "gray",
-    },
-    text: {
-      textAlign: "center",
-    },
-  };
+  const [open, setOpen] = useState(false);
+  const [close, setClose] = useState(true);
+  const [none, setNone] = useState(true);
 
-  const navPath = NavPath.map((obj) => {
+  const navMenu = Menu.map((obj) => {
     const { id, name, path } = obj;
     return (
-      <li key={id} style={stylingObject.li}>
-        <Link style={stylingObject.a} to={path}>
-          {name}
-        </Link>
+      <li key={id}>
+        <Link to={path}>{name}</Link>
       </li>
     );
   });
 
+  const showMenu = () => {
+    setOpen(open);
+    setClose(!close);
+    setNone(!none);
+  };
+
   return (
-    <header style={{ textAlign: "center" }}>
-      <div className="whatever">
-        <nav>
-          <h1 class="logo" style={{ textAlign: "center" }}>
-            Casa Verde
-          </h1>
-          <ul style={stylingObject.ul}>{navPath}</ul>
-        </nav>
-      </div>
+    <header>
+      <nav>
+        <div className="nav-top">
+          <div className="logo">img goes here</div>
+          <div
+            className={close ? "hamburger close" : "hamburger open"}
+            onClick={showMenu}
+          >
+            <div className="menu-roof"></div>
+            <div className="menu-top"></div>
+            <div className="menu-center"></div>
+            <div className="menu-bottom"></div>
+          </div>
+        </div>
+        <ul className={none ? "none" : "show"} onClick={showMenu}>
+          {navMenu}
+        </ul>
+      </nav>
     </header>
   );
 };

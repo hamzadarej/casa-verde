@@ -23,7 +23,7 @@ const Login = () => {
   const redirect = () => {
     history.push("/");
   };
-  //console.log(localStorage.getItem("token"));
+  
   return (
     <div className="register-container">
       <input
@@ -49,7 +49,7 @@ const Login = () => {
         Login
       </button>
       <h4>OR</h4>
-      <Link to="/Register">Register</Link>
+      <Link to="/register">Register</Link>
     </div>
   );
 };

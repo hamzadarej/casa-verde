@@ -26,7 +26,6 @@ const Register = () => {
       })
       .then((res) => console.log(res.data));
   };
-
   const handleUpload = (e) => {
     setAvatar(e.target.files[0]);
   };
@@ -83,5 +82,4 @@ const Register = () => {
     </div>
   );
 };
-
 export default Register;

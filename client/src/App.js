@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./sass/main.scss";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
 import About from "./components/footer/About";
@@ -24,8 +25,8 @@ function App() {
       }}
     >
       <Nav />
-
-      <main style={{ textAlign: "center", height: "50vh" }}>
+      <main >
+        <p><b>**Mobile page is under construction**</b></p>
         <Switch>
           {/* Need to add public.env */}
           <Route path="/" exact render={Home}></Route>
