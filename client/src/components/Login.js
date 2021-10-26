@@ -1,10 +1,7 @@
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
-
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -24,7 +21,7 @@ const Login = () => {
   const redirect = () => {
     history.push("/");
   };
-  //console.log(localStorage.getItem("token"));
+  
   return (
     <div className="register-container">
       <input
@@ -50,10 +47,9 @@ const Login = () => {
         Login
       </button>
       <h4>OR</h4>
-      <Link to="/Register">Register</Link>
+      <Link to="/register">Register</Link>
     </div>
   );
-
 };
 
 export default Login;

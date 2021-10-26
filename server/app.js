@@ -4,7 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
-
+const session = require("express-session");
 var app = express();
 // Initialize && Use Cors
 const cors = require("cors");
@@ -16,13 +16,14 @@ app.use(
     credentials: true,
   })
 );
-const session = require("express-session");
+
 // session
+
 app.use(
   session({
     key: "token",
     secret: process.env.TOKEN_TEXT,
-    resave: true,
+    resave: false,
     saveUninitialized: false,
   })
 );
@@ -46,32 +47,7 @@ mongoose
     console.log(`There was a problem ${error.message}`);
   });
 
-// Alow uploads
-app.use("/uploads", express.static("uploads"));
-const multer = require("multer");
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "./uploads/");
-  },
-  filename: function (req, file, cb) {
-    cb(null, new Date().toISOString() + file.originalname);
-  },
-});
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 1024 * 1024 * 10 },
-  fileFilter: function (req, file, cb) {
-    if (
-      file.mimetype == "image/jpeg" ||
-      file.mimetype == "image/png" ||
-      file.mimetype == "image/gif"
-    ) {
-      cb(null, true);
-    } else {
-      cb(new Error("Only .jpg .gif .png files are OK"), false);
-    }
-  },
-});
+
 
 // Initializing Routes
 var indexRouter = require("./routes/index");
@@ -81,10 +57,11 @@ var ProductRouter = require("./routes/product");
 
 // use routes
 
-// app.use("/users", indexRouter);
+app.use("/", indexRouter);
 app.use("/user", usersRouter);
-app.use("/admin", upload.single("image"), adminRouter);
+app.use("/admin", adminRouter);
 app.use("/product", ProductRouter);
+
 app.all("*", (req, res, next) => {
   next(new Error(`Can't find ${req.originalUrl} on this server`, 404));
 });

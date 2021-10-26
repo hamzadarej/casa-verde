@@ -3,3 +3,9 @@
 // @mixin name {
 //   // your rules
 // }
+
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

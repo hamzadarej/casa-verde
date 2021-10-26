@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import "./sass/main.scss";
 import Nav from "./components/Nav";
 import Home from "./components/Home";
 import About from "./components/footer/About";
@@ -16,13 +17,16 @@ import Logout from "./components/Logout";
 
 function App() {
   return (
-    <Router>
+    <Router
+      state={{
+        width: "100vw",
+        height: "100v",
+        display: "flex"
+      }}
+    >
       <Nav />
-
-      <main style={{ textAlign: 'center', height: '50vh' }}>
-
-
-
+      <main >
+        <p><b>**Mobile page is under construction**</b></p>
         <Switch>
           {/* Need to add public.env */}
           <Route path="/" exact render={Home}></Route>

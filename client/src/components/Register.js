@@ -1,19 +1,13 @@
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useHistory } from "react-router-dom";
-import styled from "styled-components";
-
-
-
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConf, setPasswordConf] = useState("");
-  const [avatar, setAvatar] = useState("");
+
   axios.defaults.withCredentials = true;
 
   const handleSubmit = () => {
@@ -22,7 +16,7 @@ const Register = () => {
     data.append("password", password);
     data.append("passwordConf", passwordConf);
     data.append("email", email);
-    data?.append("avatar", avatar);
+
 
     axios
       .post("user/register", data, {
@@ -33,9 +27,6 @@ const Register = () => {
       .then((res) => console.log(res.data));
   };
 
-  const handleUpload = (e) => {
-    setAvatar(e.target.files[0]);
-  };
   // i used useHistory to redirect after registering to the login page
   let history = useHistory();
   const redirect = () => {
@@ -44,12 +35,7 @@ const Register = () => {
   return (
     <div className="register-container">
       <h2>Ready to take a free trial?</h2>
-
-  
-
-
       <input
-
         type="text"
         value={username}
         name="username"
@@ -73,22 +59,12 @@ const Register = () => {
       <input
         type="password"
         value={passwordConf}
-        name="conf-password"
+        name="passwordConf"
         onChange={(e) => setPasswordConf(e.target.value)}
         placeholder="confirm your password"
       />
 
-      <input
 
-        type="file"
-        value={avatar}
-        name="avatar"
-        onChange={handleUpload}
-        placeholder=""
-      />
-      <button onClick={handleSubmit}>Register</button>
-
-      <input type="file" name="avatar" onChange={handleUpload} placeholder="" />
       <button
         onClick={() => {
           handleSubmit();
@@ -103,5 +79,4 @@ const Register = () => {
     </div>
   );
 };
-
 export default Register;
