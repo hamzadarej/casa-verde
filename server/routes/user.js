@@ -2,10 +2,10 @@ var express = require("express");
 var router = express.Router();
 const allControllers = require("../controllers/controller");
 const middleware = require("../middlewares/middleware");
-
+const allProductControllers = require("../controllers/productsController");
 //user route
 // get all products
-router.get("/products", allControllers.getAllProducts);
+router.get("/products", allProductControllers.getAllProducts);
 // register http://localhost:5005/user/register
 router.post("/register", middleware.validator, allControllers.addUser);
 
@@ -17,11 +17,21 @@ router.get("/logout", allControllers.logout);
 
 //the login and the logout part and checkAuth works only on the browser
 router.get("/checkAuth", middleware.checkToken);
-//when the user adds to basket a product that only sven can create http://localhost:5002/user/:id where the :id is the id of the user ....
+
+
+/* with post to add Product to the basket  http://localhost:5000/user/:id where id is the id of the user */
 // it requres req.body.productID  => {
 // "productID": "write the id of ur product"
 // }
-/* with get to view Products from a specific user or the admin (to view the basket) http://localhost:5000/product/616e93c53e129829c56c8f17 where id is the id of the user */
-router.post("/:id", allControllers.addToBasket).get("/:id", allControllers.getOneByID);
-router.patch("/checkout/:id", allControllers.getCheckout);
+//
+/* with get to view Products from a specific user (to view the basket) http://localhost:5000/user/:id where id is the id of the user */
+//
+/* with delete to remove a productID from basket(IF THE ID EXISTS 3 TIMES REMOVES IT ALL) http://localhost:5000/user/:id where id is the id of the user */
+// it requres req.body.productID  => {
+// "productID": "write the id of ur product"
+// }
+//
+router.post("/:id", allProductControllers.addToBasket).get("/:id", allProductControllers.getOneByID).delete("/:id", allProductControllers.removeFromBasket);
+/* with put to chekout, pay, update the inventory and empty the basket http://localhost:5000/user/checkout/:id where id is the id of the user */
+router.put("/checkout/:id", allProductControllers.getCheckout);
 module.exports = router;

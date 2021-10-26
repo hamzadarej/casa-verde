@@ -1,9 +1,9 @@
 var express = require("express");
 var router = express.Router();
 const allControllers = require("../controllers/controller");
-const middleware = require("../middlewares/middleware");
+const allProductControllers = require("../controllers/productsController");
 /* add new Product. */
-router.post("/product/:id", allControllers.addProduct);
+router.post("/product/:id", allProductControllers.addProduct);
 
 // get all users
 // getAll http://localhost:5000/admin/users
