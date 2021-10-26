@@ -7,9 +7,7 @@ router.post("/product/:id", allControllers.addProduct);
 
 // get all users
 // getAll http://localhost:5005/admin/users
-router.get("/users", middleware.checkToken, allControllers.getAllUsers);
+router.get("/users", allControllers.getAllUsers);
 // delete Product.
-
-
 
 module.exports = router;

@@ -83,7 +83,7 @@ var ProductRouter = require("./routes/product");
 // use routes
 
 app.use("/", indexRouter);
-app.use("/user", upload.single("avatar"), usersRouter);
+app.use("/user", usersRouter);
 app.use("/admin", adminRouter);
 app.use("/product", ProductRouter);
 

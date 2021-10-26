@@ -164,6 +164,7 @@ allControllers.login = async (req, res) => {
         user: {
           password: user.password,
           username: user.username,
+          basket: user.basket,
         },
       });
     } else {
@@ -175,10 +176,32 @@ allControllers.login = async (req, res) => {
     res.status(err.status).json({ message: err.message });
   }
 };
+// logout
 allControllers.logout = async (req, res) => {
   res.cookie("token", "", { maxAge: 1 });
   res.redirect("");
 };
+// deleteUser
+allControllers.deleteUser = async (req, res) => {
+  //console.log(req.query.id);
+  try {
+    const user = await User.findByIdAndDelete(req.query.id);
+    res.status(200).json({ message: "this user been deleted", user });
+  } catch (err) {
+    res.status(err.status).json({ message: err.message });
+  }
+};
+//getOneByID
+allControllers.getOneUser = async (req, res) => {
+  console.log(req.query.id);
+  try {
+    const user = await User.findById(req.query.id);
+    res.status(200).json({ message: "user", user });
+  } catch (err) {
+    res.status(400).json({ message: err.message });
+  }
+};
+
 allControllers.getDate = async (req, res) => {
   res.status(200).json("welcome to casaVerde");
 };

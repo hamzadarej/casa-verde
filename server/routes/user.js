@@ -17,6 +17,11 @@ router.get("/logout", allControllers.logout);
 //the login and the logout part and checkAuth works only on the browser
 router.get("/checkAuth", middleware.checkToken);
 
+//delete User
+router.delete("/deleteUser", allControllers.deleteUser);
+// get oneUser
+router.get("/getOne", allControllers.getOneUser);
+
 // get all products
 router.get("/products", middleware.checkToken, allControllers.getAllProducts);
 //when the user adds to basket a product that only sven can create http://localhost:5000/user/:id where the :id is the id of the user ....
@@ -24,5 +29,7 @@ router.get("/products", middleware.checkToken, allControllers.getAllProducts);
 // "productID": "write the id of ur product"
 // }
 router.post("/:id", allControllers.addToBasket);
+
 router.patch("/checkout/:id", allControllers.getCheckout);
+
 module.exports = router;
