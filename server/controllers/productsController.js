@@ -62,10 +62,10 @@ allProductControllers.removeFromBasket = async (req, res) => {
     const user = await User.findById(req.params.id);
     const product = await Product.findById(req.body.productId);
     if (user && product) {
-console.log(user.basket);
+
       user.basket.pull(product);
       user.save();
-      console.log(user.basket);
+     
       res.status(201).json({ message: "Product removed from basket ✅" });
     } else {
       res.status(404).json({ message: "User or product not found" });
