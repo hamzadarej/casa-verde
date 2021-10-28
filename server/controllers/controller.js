@@ -22,13 +22,12 @@ allControllers.addUser = async (req, res) => {
       state: req.body.state,
       zip: req.body.zip,
       country: req.body.country,
-      avatar: req.file.path,
     });
 
     await user.save();
     res.status(201).json({ message: "New user being added ✅", user });
   } catch (err) {
-    res.status(400).json({ message: err.message });
+    res.status(400).json({ message: "false username" });
   }
 };
 // GET all users
@@ -45,10 +44,11 @@ allControllers.getAllUsers = async (req, res) => {
 allControllers.login = async (req, res) => {
   let username = req.body.username;
   let password = req.body.password;
+
   const user = await User.findOne({ username });
 
   if (user == null) {
-    return res.status(404).json({ message: "Cannot find user" });
+    return res.status(404).send({ message: "Cannot find user" });
   }
   try {
     if (await bcrypt.compare(password, user.password)) {
@@ -67,12 +67,12 @@ allControllers.login = async (req, res) => {
           },
         });
     } else {
-      res.json({
-        message: "Not Allowed, please check your username or password",
+      res.status(404).json({
+        message: "Not Allowed,Check your password",
       });
     }
   } catch (err) {
-    res.status(err.status).json({ message: err.message });
+    res.status(400).send({ message: err.message });
   }
 };
 // logout

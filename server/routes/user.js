@@ -6,7 +6,7 @@ const allProductControllers = require("../controllers/productsController");
 //user route
 
 // register http://localhost:5000/user/register
-router.post("/register", middleware.validator, allControllers.addUser);
+router.post("/register",middleware.validator, allControllers.addUser);
 
 // login http://localhost:5000/user/login
 router.post("/login", allControllers.login);

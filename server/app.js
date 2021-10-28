@@ -6,16 +6,6 @@ var morgan = require("morgan");
 var bodyParser = require("body-parser");
 const session = require("express-session");
 var app = express();
-// Initialize && Use Cors
-const cors = require("cors");
-
-app.use(
-  cors({
-    origin: "http://localhost:3000",
-    methods: ["GET", "POST"],
-    credentials: true,
-  })
-);
 
 // session
 
@@ -34,6 +24,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 
+// Initialize && Use Cors
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+    credentials: true,
+  
+  })
+);
 // mongoDB
 
 const mongoose = require("mongoose");
@@ -46,7 +47,6 @@ mongoose
   .catch((error) => {
     console.log(`There was a problem ${error.message}`);
   });
-
 
 // Initializing Routes
 var indexRouter = require("./routes/index");
@@ -61,8 +61,8 @@ app.use("/user", usersRouter);
 app.use("/admin", adminRouter);
 app.use("/product", ProductRouter);
 
-app.all("*", (req, res, next) => {
+/*app.all("*", (req, res, next) => {
   next(new Error(`Can't find ${req.originalUrl} on this server`, 404));
-});
+});*/
 // Exporting App
 module.exports = app;

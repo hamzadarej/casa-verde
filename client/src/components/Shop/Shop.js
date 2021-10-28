@@ -19,19 +19,18 @@ function Shop() {
       .then((res) => {
         if (res.data) {
           setData(res.data);
-          console.log(res.data);
         } else {
           setData({ message: "user NOT Authenticated" });
         }
       })
       .catch((err) => {
-        console.log("here", err.message);
+        console.log("here", err.response.data.message);
       });
   };
-  console.log(data);
+
   //localStorage.setItem("data", JSON.stringify(data));s
   const getBasket = localStorage.getItem("basket");
-  console.log(getBasket);
+
   useEffect(() => {
     getAllProducts();
   }, []);
@@ -39,12 +38,12 @@ function Shop() {
   if (data?.auth === false || data.length === 0) {
     return (
       <div>
-        <h1>you are logged out </h1>
+        <h3>{data.message} please login </h3>
         <Link to="/login">Login</Link>
       </div>
     );
   }
-  console.log(data);
+
   const getProducts = data?.map((obj) => {
     const { _id, category, name, price, description, quantity } = obj;
 

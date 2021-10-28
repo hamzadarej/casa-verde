@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Menu from "../menu.json";
+import { DataContext } from "./Context";
+import {FiLogOut} from "react-icons/fi"
 
 const Nav = () => {
   const [open, setOpen] = useState(false);
   const [close, setClose] = useState(true);
   const [none, setNone] = useState(true);
-  const [token, setToken] = useState();
-
+//use the context
+  const [token, setToken] = useContext(DataContext);
   const navMenu = Menu.map((obj) => {
     const { id, name, path } = obj;
     return (
@@ -24,8 +26,8 @@ const Nav = () => {
   };
   //logout
   const logOut = () => {
+    setToken("")
     localStorage.clear();
-    setToken("");
     redirect();
   };
   // redirect to login when its logged out
@@ -33,28 +35,25 @@ const Nav = () => {
   const redirect = () => {
     history.push("/login");
   };
-  let getToken = localStorage.getItem("token");
-  useEffect(() => {
-    setToken(getToken);
-  }, [getToken]);
 
   return (
     <header>
       <nav>
         <div className="nav-top">
           <div className="logo">img goes here</div>
-          <div>
+          
+          <div  >
             {token ? (
               <>
                 {" "}
-                <button onClick={logOut}>logout</button>
+                <div style={{color:"black" , fontWeight:"bold" ,textDecoration:"none", cursor:"pointer" }} onClick={logOut} alt="logout"><FiLogOut/></div>
               </>
             ) : (
               <>
                 {" "}
-                <Link to="/login">sign in</Link>
+                <Link style={{color:"black" , fontWeight:"bold" ,textDecoration:"none"}}to="/login">sign in</Link>
                 {"  "}
-                <Link to="/register">sign up</Link>
+                <Link style={{color:"black" , fontWeight:"bold" ,textDecoration:"none"}}to="/register">sign up</Link>
               </>
             )}
           </div>
